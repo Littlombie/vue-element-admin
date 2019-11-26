@@ -1,0 +1,79 @@
+
+
+get https://yesno.wtf/api
+
+
+###
+POST http://www.pcddapi.com/api/v0/game/bet.api HTTP/1.1
+
+content-type: application/json
+
+{
+  "amount": 0,
+  "betContent": "string",
+  "betDouble": 0,
+  "count": 0,
+  "gameType": 0,
+  "issue": "string",
+  "mix": true,
+  "playId": 0,
+  "playId2": 0,
+  "playType": 0,
+  "playType2": 0,
+  "roomId": 0,
+  "singleAmount": 0,
+  "token": "string",
+  "userName": "deanwen"
+}
+
+### 
+POST https://example.com/comments HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+
+
+### 
+POST http://www.pcddapi.com/api/v0/user/login.api HTTP/1.1
+
+content-type: application/json
+
+{
+  "machineCode": "string",
+  "password": "string",
+  "sysType": 0,
+  "userName": "string",
+  "version": "string"
+}
+
+### 
+GET https://example.com/comments/1 HTTP/1.1
+
+###
+
+GET https://example.com/topics/1 HTTP/1.1
+
+
+### 
+get http://xboot.exrick.cn/xboot/common/ip/info
+
+
+### 
+get https://api.github.com/users/littlombie
+
+
+### 
+curl https://api.github.com
+
+
+###
+
+get https://c.api.weibo.com/2/users/show/biz.json
+
+
+### 
+get https://c.api.weibo.com/2/users/show_batch/other.json

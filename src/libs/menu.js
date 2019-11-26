@@ -1,0 +1,79 @@
+export default [{
+    icon: 'el-icon-location',
+    title: '组件',
+    code: 1,
+    router: 'temp',
+    sub: [{
+      icon: '',
+      title: '概况',
+      router: 'overview',
+      sub: [],
+    }, {
+      icon: '',
+      title: '组件',
+      router: 'adminContainer',
+      sub: [],
+    }, {
+      icon: '',
+      title: '列表',
+      router: 'list',
+      sub: [],
+    }, {
+      icon: '',
+      title: 'tab',
+      router: 'tab',
+      sub: [],
+    }, {
+      icon: '',
+      title: '流程图',
+      router: 'stepMap',
+      sub: [],
+    }],
+  },
+  {
+    icon: 'el-icon-document',
+    title: '表单',
+    router: 'forms',
+    code: 2,
+    sub: [{
+      icon: '',
+      title: '表单',
+      router: 'check',
+      sub: [],
+    }, {
+      icon: '',
+      title: '表单验证',
+      router: 'validForm',
+      sub: [],
+    }, {
+      icon: '',
+      title: '表单验证2',
+      router: 'formList',
+      sub: [],
+    }, {
+      icon: '',
+      title: '地址三联选',
+      router: 'addressSelect',
+      sub: [],
+    }]
+  },
+  {
+    icon: 'el-icon-ice-drink',
+    title: '其他',
+    router: 'others',
+    code: 3,
+    sub: [{
+      icon: '',
+      title: 'markdown',
+      router: 'markdown',
+      sub: [],
+    }]
+  }
+// {
+//   icon: 'el-icon-document',
+//   title: '菜单3',
+//   router: 'forms',
+//   code: 3,
+//   sub: []
+// }
+]
