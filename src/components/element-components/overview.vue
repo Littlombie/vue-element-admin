@@ -28,14 +28,15 @@ export default {
     getPress() {
       this.$http
         .getProcess()
-        .then(resp => {
-          if (resp) {
-            resp = JSON.parse(resp);
-            if (resp.status === 200) {
-              this.list = resp.data;
+        .then(res => {
+          if (res) {
+            res = JSON.parse(res);
+            if (res.status === 200) {
+              console.log('...', res);
+              this.list = res.data;
             }
           }
-          console.log(resp);
+          console.log(res);
         })
         .catch(err => {
           console.log(err);

@@ -28,6 +28,11 @@ export default [{
       title: '流程图',
       router: 'stepMap',
       sub: [],
+    }, {
+      icon: '',
+      title: 'demo练习',
+      router: 'parctice',
+      sub: []
     }],
   },
   {

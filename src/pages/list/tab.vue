@@ -1,7 +1,7 @@
 <template>
   <div class="tab-page">
-    <div style="margin-bottom: 20px;">
-      <input v-focus placeholder="自定义指令---tab名称" v-model="tabTitle">
+    <div class="add-contorll" style="margin-bottom: 20px;">
+      <el-input v-focus placeholder="自定义指令---tab名称" v-model="tabTitle" size="small"></el-input>
       <el-button size="small" @click="addTab(editableTabsValue)">add tab</el-button>
     </div>
     <el-button type="text" @click="formData.isVisible = true">父子双向绑定 Dialog</el-button>
@@ -84,9 +84,9 @@ export default {
     addTab(targetName) {
       let newTabName = ++this.tabIndex + "";
       this.editableTabs.push({
-        title: "New Tab" + this.tabTitle,
+        title: "New Tab - " + this.tabTitle,
         name: newTabName,
-        content: "New Tab content" + this.tabIndex
+        content: "New Tab content - " + this.tabIndex
       });
       this.editableTabsValue = newTabName;
       this.tabTitle = '';
@@ -127,6 +127,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.add-contorll {
+  .el-input {
+    width: 300px;
+    margin-right: 20px;
+  }
+}
 .tab-page {
   min-height: 500px;
   padding: 20px;
@@ -139,6 +145,9 @@ export default {
   align-items: flex-start;
   &>div {
     margin: 0 30px;
+    p {
+      cursor: pointer;
+    }
   }
 }
 </style>

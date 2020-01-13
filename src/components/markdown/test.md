@@ -1,4 +1,9 @@
-# 测试Markdown
+# 测试Markdown解析
+
+
+ 参考文章：  
+[vue中引入md文件，解析为组件并实现代码高亮](https://segmentfault.com/a/1190000021085117?utm_source=weekly&utm_medium=email&utm_campaign=email_weekly)
+
 
 >  测试一下 
 
@@ -8,7 +13,6 @@
 2. 研究方法
 	2. vuex主要解决什么问题，如果不用vuex如何解决，
   3. vuex如何管理state prop; state prop分别来处理什么内容？
-
 
 
 **重点**

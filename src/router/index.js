@@ -12,6 +12,7 @@ import List from '@/pages/list/list'
 import AdminContainer from '@/pages/list/admin-container'
 import Tab from '@/pages/list/tab'
 import stepMap from '@/pages/list/stepMap'
+import parctice from '@/pages/list/parctice'
 
 import Form from '@/pages/form/form'
 import Check from '@/pages/form/check'
@@ -95,6 +96,13 @@ const vueRouter = new Router({
                 title: 'stepMap',
               },
               component: stepMap
+            },{
+              path: 'parctice',
+              name: 'parctice',
+              meta: {
+                title: 'parctice',
+              },
+              component: parctice
             }
           ]
         },

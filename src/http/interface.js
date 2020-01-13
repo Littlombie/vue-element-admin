@@ -6,39 +6,21 @@ import axios from './api' // 倒入 api
  */
 
 // 单独倒出
-export const tabList = params => {
-  return axios({
-    url: 'api/tabList',
-    method: 'get',
-    params
-  })
-}
-
-export const login = data => {
-  return axios({
-    url: 'api/login',
-    method: 'post',
-    data
-  })
-}
-export const logout = () => {
-  return axios({
-    url: 'api/loginOut',
-    method: 'post'
-  })
-}
-
-export const getProcess = () => {
-  return axios({
-    url: '/json/getProcess.json',
-    method: 'get'
-  })
-}
+// export const tabList = params =>  axios({ url: 'api/tabList', method: 'get', params })
+// export const login = data =>  axios({ url: 'api/login', method: 'post', data })
+// export const logout = () =>  axios({ url: 'api/loginOut', method: 'post' })
+// export const getProcess = () =>  axios({ url: '/json/getProcess.json', method: 'get' })
 
 // 根据需要进行  
 export default {
-  tabList,
-  login,
-  logout,
-  getProcess
+  tabList: params =>  axios({ url: 'api/tabList', method: 'get', params }),
+  login: params =>  axios({ url: 'api/login', method: 'post', params }),
+  logout: () =>  axios({ url: 'api/loginOut', method: 'post' }),
+  getProcess: () =>  axios({ url: '/json/getProcess.json', method: 'get' })
 }
+// export default {
+//   tabList: (params = {}) => axios.get('api/tabList', params),
+//   login: (params) => axios.post('api/login', params),
+//   logout: (params = {}) => axios.post('api/loginOut', params),
+//   getProcess: (params = {}) => axios.get('/json/getProcess.json', params)
+// }

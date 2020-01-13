@@ -36,13 +36,16 @@
             />
           </svg>
         </el-button>
+        
       </el-col>
-      <el-col :span="1" :offset="20">
-        <el-badge :value="msgView" class="item" :hidden="msgView==0">
+      <el-col :span="2" :offset="19">
+        <el-badge  class="item">
+          <i class="iconfont icon-smile"></i>
+        </el-badge>
+        <el-badge :value="msgView" class="item" :hidden="msgView==0" @click="sayMsg">
           <i
             class="msgViews"
             :class="this.msgIcon ? 'el-icon-message-solid' : 'el-icon-bell'"
-            @click="sayMsg"
           ></i>
         </el-badge>
       </el-col>
@@ -207,9 +210,11 @@ export default {
   border-bottom: 1px solid #eee;
 }
 .item {
-  margin-top: 5px;
-  margin-right: 40px;
+  margin: 5px 10px;
   line-height: 0%;
+  &:last-of-type {
+    margin-right: 30px;
+  }
 }
 .msgViews {
   font-size: 20px;

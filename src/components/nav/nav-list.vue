@@ -43,10 +43,14 @@ export default {
 <style lang="less" scoped>
 .el-nav-item {
   .el-submenu {
-    .iconfont {
-      padding-right: 10px;
+    .iconfont {    
+      width: 24px;
+      margin-right: 5px;
       font-size: 18px;
     }
+    // .el-submenu__title {
+    //   margin-left: 10px;
+    // }
     .el-menu  {
       .el-menu-item, &:hover {
         cursor: pointer;
