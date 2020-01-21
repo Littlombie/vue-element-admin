@@ -82,8 +82,7 @@ export default {
         .tabList()
         .then(resp => {
           if (resp) {
-            resp = JSON.parse(resp);
-            if (resp.status == 200) {
+            if (resp.code == 200) {
               this.tableData = resp.data;
               this.totalCount = resp.data.length * 10;
               setTimeout(() => {

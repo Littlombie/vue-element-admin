@@ -38,7 +38,7 @@
         </el-button>
         
       </el-col>
-      <el-col :span="2" :offset="19">
+      <el-col :span="5" :offset="15">
         <el-badge  class="item">
           <i class="iconfont icon-smile"></i>
         </el-badge>
@@ -49,7 +49,7 @@
           ></i>
         </el-badge>
       </el-col>
-      <el-col :span="1" class="header-wrap text-r">
+      <el-col :span="2" class="header-wrap text-r">
         <el-dropdown>
           <el-button class="no-b">
             <!-- <i class="el-icon-user-solid"  aria-hidden="true"></i> -->
@@ -64,18 +64,18 @@
               </div>
             </el-dropdown-item>
             <el-dropdown-item>
+              <div class="changePass" @click="showChange">
+                <i class="el-icon-key"></i>
+                修改密码
+              </div>
+            </el-dropdown-item>
+            <el-dropdown-item>
               <div @click="loginOut">
                 <i class="el-icon-switch-button"></i>
                 退出登录
               </div>
               <!-- <router-link to="/admin" tag="div">
               </router-link>-->
-            </el-dropdown-item>
-            <el-dropdown-item>
-              <div class="changePass" @click="showChange">
-                <i class="el-icon-key"></i>
-                修改密码
-              </div>
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -149,15 +149,13 @@ export default {
         await $confirm("此操作将退出登录, 是否继续?", "提示", {
           type: "warning"
         });
-        const { msg } = JSON.parse(await $http.logout());
-        await $message({
-          type: 'success',
-          message: msg
-        });
+        const res = await $http.logout();
+        console.log(res);
+        await $message.success( res.msg );
         setUserInfo(null);
         $router.replace('/admin');
-      } catch ({ msg }) {
-        msg && $message.warn(msg);
+      } catch (err) {
+        err && $message.warn(err.msg);
       }
     }
   },

@@ -13,11 +13,12 @@ import axios from './api' // 倒入 api
 
 // 根据需要进行  
 export default {
-  tabList: params =>  axios({ url: 'api/tabList', method: 'get', params }),
-  login: params =>  axios({ url: 'api/login', method: 'post', params }),
-  logout: () =>  axios({ url: 'api/loginOut', method: 'post' }),
-  getProcess: () =>  axios({ url: '/json/getProcess.json', method: 'get' })
+  tabList: options => axios({ url: 'api/tabList', method: 'get', options }),
+  login: data => axios({ url: 'api/login', method: 'post', data }),
+  logout: () => axios({ url: 'api/loginOut', method: 'post' }),
+  getProcess: () => axios({ url: '/json/getProcess.json', method: 'get' })
 }
+
 // export default {
 //   tabList: (params = {}) => axios.get('api/tabList', params),
 //   login: (params) => axios.post('api/login', params),

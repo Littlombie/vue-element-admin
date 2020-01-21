@@ -9,8 +9,10 @@
       @close="handleClose"
       :collapse="isNavMenuOpen"
     >
-      <nav-list :menuData="menuList"></nav-list>
-      <el-submenu index="1">
+      <!-- <li class="menu-wrapper"> -->
+        <nav-list :menuData="menuList"></nav-list>
+      <!-- </li> -->
+      <!-- <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
           <span slot="title">导航一</span>
@@ -32,7 +34,7 @@
       <el-menu-item index="4">
         <i class="el-icon-setting"></i>
         <span slot="title">导航四</span>
-      </el-menu-item>
+      </el-menu-item> -->
     </el-menu>
 
   </div>

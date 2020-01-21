@@ -11,6 +11,9 @@ const install = Vue => {
     $http: {
       get() {
         return apiList
+      },
+      post() {
+        return apiList
       }
     }
   })

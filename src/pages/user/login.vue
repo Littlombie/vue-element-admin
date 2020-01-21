@@ -2,13 +2,13 @@
   <div class="page-module login-container backgroundCover flex width_100 height_100">
     <div class="login-panel">
       <div class="bg-cover"></div>
-      <p class="head-text">请登录</p>
+      <h3 class="head-text">请登录</h3>
       <el-form class="login-form" size="medium" :model="form" :rules="rules" ref="form">
         <el-form-item prop="username">
-          <el-input placeholder="请输入账户名：" autofocus v-model="form.username" />
+          <el-input placeholder="请输入账户名："  prefix-icon="el-icon-user" autofocus v-model.trim="form.username" />
         </el-form-item>
         <el-form-item prop="password">
-          <el-input type="password" placeholder="请输入账户密码：" v-model="form.password" />
+          <el-input type="password" prefix-icon="el-icon-lock" placeholder="请输入账户密码：" v-model.trim="form.password" />
         </el-form-item>
         <el-form-item>
           <el-button
@@ -46,20 +46,42 @@ export default {
       setUserInfo: 'SET_USER_INFO'
     }),
     onSubmit() {
-      this.$http.login({
-        username: 'admin',
-        password: 'admin'
-      }).then(resp => {
-        if (resp) {
-          resp = JSON.parse(resp);
-          this.setUserInfo(resp.data)
-          this.$router.replace('/components/admin-container')
+      this.$refs.form.validate( valid => {
+        if (valid) {
+          const { username, password} = this.form;
+          const data = {
+            username,
+            password,
+          };
+          this.submitLoad = true;
+          let loginStatus = '';
+          const _this = this;
+          (async (data) => {
+            let res = await this.$http.login(data);
+            console.log(res);
+            if (res && res.code ===200) {
+              _this.setUserInfo(res.data)
+              _this.$router.replace('/components/admin-container');
+              loginStatus = 'success'
+            } else {
+              _this.submitLoad = false;
+              loginStatus = 'error'
+              _this.showTips();
+            }
+            _this.$message[loginStatus](res.msg);
+          })(data)
+        } else {
+          this.showTips();
         }
-      }).catch(err => {
-        throw new Error(err);
       })
+    },
+    showTips() {
+      const h = this.$createElement;
 
-      this.submitLoad = true;
+      this.$notify({
+        title: '温馨提示',
+        message: h('i', { style: 'color: teal'}, '账号：admin 密码：123456')
+      });
     }
   }
 };
@@ -75,9 +97,10 @@ export default {
 #02c7fd 0%, #ff0202 100%);
 
   .login-panel {
-    padding: 25px 15px;
-    width: 350px;
-    border-radius: 3px;
+    padding: 25px 30px;
+    width: 30%;
+    max-width: 350px;
+    border-radius: 5px;
       background-color: #fff;
     &:after {
       display: block;

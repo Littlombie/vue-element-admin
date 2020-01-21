@@ -30,8 +30,7 @@ export default {
         .getProcess()
         .then(res => {
           if (res) {
-            res = JSON.parse(res);
-            if (res.status === 200) {
+            if (res.code === 200) {
               console.log('...', res);
               this.list = res.data;
             }

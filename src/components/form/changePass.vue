@@ -64,7 +64,7 @@ export default {
       };
     return {
       // changePassDialog:false,
-      labelPosition: 'left',
+      labelPosition: 'right',
       form: {
         name: "",
         pass: "",
