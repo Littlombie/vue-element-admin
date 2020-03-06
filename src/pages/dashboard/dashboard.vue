@@ -2,7 +2,7 @@
   <el-container>
     <el-container>
       <v-aside></v-aside>
-      <el-main>
+      <el-main class="main-body">
         <v-header></v-header>
         <router-view />
       </el-main>

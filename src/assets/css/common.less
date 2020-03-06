@@ -155,3 +155,36 @@ table {
 .component-box + .component-box {
   margin-top: 20px;
 }
+
+/*表格公用样式*/
+.main-body {
+  .el-table th {
+    height: 40px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: #f8f8f9;
+    border-right: 1px solid #e8eaec;
+  }
+
+  .el-table th>.cell {
+    font-size: 13px;
+    color: #444444;
+    line-height: 1;
+  }
+
+  .el-table td {
+    text-align: center;
+    background-color: #fff;
+  }
+
+  .el-table td>.cell {
+    font-size: 13px;
+    color: #444444;
+    line-height: 18px;
+  }
+
+  .el-table th.gutter {
+    display: table-cell !important;
+  }
+}

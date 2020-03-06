@@ -2,7 +2,7 @@
 
 
  参考文章：  
-[vue中引入md文件，解析为组件并实现代码高亮](https://segmentfault.com/a/1190000021085117?utm_source=weekly&utm_medium=email&utm_campaign=email_weekly)
+<a href="https://segmentfault.com/a/1190000021085117?utm_source=weekly&utm_medium=email&utm_campaign=email_weekly" target="_blank">vue中引入md文件，解析为组件并实现代码高亮</a>
 
 
 >  测试一下 

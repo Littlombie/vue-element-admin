@@ -1,8 +1,8 @@
-import {sessionStorage} from '../common/storage'
+import {session} from '../common/storage'
 
 export  default ({
   state: {
-    userInfo:  sessionStorage.get('user_info')
+    userInfo: session.get('user_info')
   },
   getters: {
     // 获取用户信息

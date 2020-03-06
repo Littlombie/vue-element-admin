@@ -31,7 +31,8 @@ export const login =  Mock.mock('api/login', (req, res) => {
         'data': {
             'date': '@date()',
             'address': '@county(true)',
-            'avatar': '@image("100x100", "#02adea")',
+            'avatar': '@dataImage("100x100", "Admin")',
+            // '@dataImage("200x100", "@cname()")'
             'name': '@cname()',
             'desc': '@csentence()',
             'tel': '@natural(13000000000, 18999999999)'

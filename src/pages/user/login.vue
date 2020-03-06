@@ -5,10 +5,10 @@
       <h3 class="head-text">请登录</h3>
       <el-form class="login-form" size="medium" :model="form" :rules="rules" ref="form">
         <el-form-item prop="username">
-          <el-input placeholder="请输入账户名："  prefix-icon="el-icon-user" autofocus v-model.trim="form.username" />
+          <el-input placeholder="请输入账户名："  prefix-icon="el-icon-user" autofocus v-model.trim="form.username"  @keyup.enter="onSubmit"/>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input type="password" prefix-icon="el-icon-lock" placeholder="请输入账户密码：" v-model.trim="form.password" />
+          <el-input type="password" prefix-icon="el-icon-lock" placeholder="请输入账户密码：" v-model.trim="form.password" @keyup.enter.native="onSubmit" />
         </el-form-item>
         <el-form-item>
           <el-button

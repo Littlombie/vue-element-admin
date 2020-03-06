@@ -2,7 +2,7 @@
  * @Author: Littlombie
  * @Date: 2019-10-08 15:24:40
  * @lastEditors: Littlombie
- * @LastEditTime: 2019-10-08 15:45:54
+ * @LastEditTime: 2020-03-06 16:50:28
  * @ storage 的配置
  */
 
@@ -50,5 +50,5 @@ class Storage {
   }
 }
 
-export const localStorage = new Storage('local')
-export const sessionStorage = new Storage('session')
+export const storage = new Storage('local')
+export const session = new Storage('session')

@@ -3,7 +3,7 @@
     <el-row>
       <el-col
         :span="2"
-        class="header-wrap"
+        class="header-nav-controll"
         :close-on-click-modal="false"
         :close-on-press-escape="false"
       >
@@ -36,58 +36,66 @@
             />
           </svg>
         </el-button>
-        
+
       </el-col>
-      <el-col :span="5" :offset="15">
-        <el-badge  class="item">
-          <i class="iconfont icon-smile"></i>
-        </el-badge>
-        <el-badge :value="msgView" class="item" :hidden="msgView==0" @click="sayMsg">
-          <i
-            class="msgViews"
-            :class="this.msgIcon ? 'el-icon-message-solid' : 'el-icon-bell'"
-          ></i>
-        </el-badge>
+      <el-col :span="6" style="text-align:left;">
+        <span>{{$t('message.Text')}}</span>
       </el-col>
-      <el-col :span="2" class="header-wrap text-r">
-        <el-dropdown>
-          <el-button class="no-b">
-            <!-- <i class="el-icon-user-solid"  aria-hidden="true"></i> -->
-            <img :src="getInfo.avatar" class="el-icon-user-solid" alt="">
-            <i class="el-icon-arrow-down el-icon--right"></i>
-          </el-button>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>
-              <div @click="openInfo">
-                <i class="el-icon-user"></i>
-                查看个人信息
-              </div>
-            </el-dropdown-item>
-            <el-dropdown-item>
-              <div class="changePass" @click="showChange">
-                <i class="el-icon-key"></i>
-                修改密码
-              </div>
-            </el-dropdown-item>
-            <el-dropdown-item>
-              <div @click="loginOut">
-                <i class="el-icon-switch-button"></i>
-                退出登录
-              </div>
-              <!-- <router-link to="/admin" tag="div">
-              </router-link>-->
-            </el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
+      <el-col :span="7" :offset="9">
+        <div class="header-conroll">
+          <change-langs></change-langs>
+          <el-badge class="item">
+            <i class="iconfont icon-smile"></i>
+          </el-badge>
+          <el-badge :value="msgView" class="item" :hidden="msgView==0" @click="sayMsg">
+            <i class="msgViews" :class="this.msgIcon ? 'el-icon-message-solid' : 'el-icon-bell'"></i>
+          </el-badge>
+          <div class="header-wrap text-r">
+            <el-dropdown>
+              <el-button class="no-b">
+                <!-- <i class="el-icon-user-solid"  aria-hidden="true"></i> -->
+                <img :src="getInfo.avatar" class="el-icon-user-solid" alt />
+                <i class="el-icon-arrow-down el-icon--right"></i>
+              </el-button>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>
+                  <div @click="openInfo">
+                    <i class="el-icon-user"></i>
+                    {{$t('message.Info')}}
+                  </div>
+                </el-dropdown-item>
+                <el-dropdown-item>
+                  <div class="changePass" @click="showChange">
+                    <i class="el-icon-key"></i>
+                    {{$t('message.LoginpPass')}}
+                  </div>
+                </el-dropdown-item>
+                <el-dropdown-item>
+                  <div @click="loginOut">
+                    <i class="el-icon-switch-button"></i>
+                    {{$t('message.SignOut')}}
+                  </div>
+                  <!-- <router-link to="/admin" tag="div">
+                  </router-link>-->
+                </el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>
+        </div>
       </el-col>
+      <!-- <el-col :span="5" :offset="15">
+      </el-col>
+      <el-col :span="2" >
+      </el-col>-->
     </el-row>
   </el-header>
 </template>
 
 <script>
-import { mapState, mapGetters,  mapActions } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
+import changeLangs from '@/components/element-components/chnageLangs'
 
-import { log } from 'util';
+import { log } from "util";
 export default {
   data() {
     return {
@@ -98,8 +106,8 @@ export default {
     };
   },
   methods: {
-    ...mapActions ({
-      setUserInfo: 'SET_USER_INFO'
+    ...mapActions({
+      setUserInfo: "SET_USER_INFO"
     }),
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
@@ -143,7 +151,7 @@ export default {
       }
     },
     async loginOut() {
-      const {$confirm, $http, $message, $router, setUserInfo} = this
+      const { $confirm, $http, $message, $router, setUserInfo } = this;
 
       try {
         await $confirm("此操作将退出登录, 是否继续?", "提示", {
@@ -151,22 +159,21 @@ export default {
         });
         const res = await $http.logout();
         console.log(res);
-        await $message.success( res.msg );
+        await $message.success(res.msg);
         setUserInfo(null);
-        $router.replace('/admin');
+        $router.replace("/admin");
       } catch (err) {
         err && $message.warn(err.msg);
       }
     }
   },
-  mounted() {
-  },
+  mounted() {},
   computed: {
     ...mapState({
       isNavMenuOpen: state => state.init.isNavMenuOpen
     }),
-    ...mapGetters ({
-      getInfo: 'GET_USER_INFO'
+    ...mapGetters({
+      getInfo: "GET_USER_INFO"
     }),
     iconName() {
       return this.isNavMenuOpen;
@@ -174,6 +181,7 @@ export default {
   },
   components: {
     // 'Info': Info
+    'change-langs': changeLangs
   }
 };
 </script>
@@ -194,6 +202,11 @@ export default {
   width: 100%;
 }
 .header-wrap {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 20px;
+}
+.header-nav-controll {
   text-align: left;
 }
 .no-b {
@@ -211,7 +224,7 @@ export default {
   margin: 5px 10px;
   line-height: 0%;
   &:last-of-type {
-    margin-right: 30px;
+    // margin-right: 30px;
   }
 }
 .msgViews {
@@ -221,7 +234,7 @@ export default {
 
 .el-button {
   padding: 6px 10px;
-  &>span {
+  & > span {
     height: 20px;
   }
   .is-active {

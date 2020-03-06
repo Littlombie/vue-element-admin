@@ -1,16 +1,18 @@
 <template>
+  <!-- <el-aside width="200px" style="background-color: rgb(238, 241, 246)"> -->
   <div class="side-menu">
+    <!-- default-active="1-4-1" -->
 
-      <!-- default-active="1-4-1" -->
     <el-menu
-     default-active="1-1-1"
+      default-active="1-1-1"
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
       :collapse="isNavMenuOpen"
+      unique-opened
     >
       <!-- <li class="menu-wrapper"> -->
-        <nav-list :menuData="menuList"></nav-list>
+      <nav-list :menuData="menuList"></nav-list>
       <!-- </li> -->
       <!-- <el-submenu index="1">
         <template slot="title">
@@ -36,8 +38,8 @@
         <span slot="title">导航四</span>
       </el-menu-item> -->
     </el-menu>
-
   </div>
+  <!-- </el-aside> -->
 </template>
 
 <script>
@@ -72,12 +74,30 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
 .side-menu {
   text-align: left;
 }
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
-  min-height: 400px;
+.el-menu-vertical-demo {
+  &:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
+  }
+  &.el-menu--collapse {
+    .el-submenu__title{
+    // text-align: center;
+      .title {
+        display: none;
+      }
+    }
+    .el-submenu__icon-arrow {
+      display: none;
+    }
+  }
+  .el-nav-item {
+    .el-menu-item {
+      margin-left: 10px;
+    }
+  }
 }
 </style>

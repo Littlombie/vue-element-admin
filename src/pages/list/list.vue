@@ -13,14 +13,21 @@
         style="width: 100%"
         v-loading="loading"
         @selection-change="handleSelectionChange"
+        border
+        align="center"
+        header-align="center"
       >
         <el-table-column type="selection" width="55"></el-table-column>
         <el-table-column label="日期" width="120">
           <template slot-scope="scope">{{ scope.row.date }}</template>
         </el-table-column>
         <el-table-column prop="name" label="姓名" width="120"></el-table-column>
-        <el-table-column prop="address" label="地址" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="addDetail" label="详细地址" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="address" label="地址" show-overflow-tooltip min-width="200">
+          <template slot-scope="scope">
+            <p>{{scope.row.address}} {{scope.row.addDetail}}</p>
+          </template>
+        </el-table-column>
+        <!-- <el-table-column prop="addDetail" label="详细地址" show-overflow-tooltip></el-table-column> -->
         <el-table-column  label="类型" show-overflow-tooltip >
           <template slot-scope="scope">
             {{scope.row.type | types}}
