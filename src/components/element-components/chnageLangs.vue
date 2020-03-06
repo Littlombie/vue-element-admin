@@ -2,10 +2,10 @@
  * @Author: Littlombie
  * @Date: 2020-03-06 15:27:09
  * @lastEditors: Littlombie
- * @LastEditTime: 2020-03-06 17:22:10
+ * @LastEditTime: 2020-03-06 17:28:59
  -->
 <template>
-  <span class="item changeLangs" @click="changeLangs(langs)">
+  <span class="changeLangs" @click="changeLangs(langs)">
     <i :class="langs == 'cn' ? 'isActive' : ''">中</i> /
     <i :class="langs == 'en' ? 'isActive' : ''">En</i>
   </span>
@@ -42,7 +42,7 @@ export default {
 
 <style lang="less" scoped>
   .changeLangs {
-    margin-right: 20px;
+    margin-right: 0;
     cursor: pointer;
     i {
       font-style: normal;

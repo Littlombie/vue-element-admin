@@ -43,12 +43,16 @@
       </el-col>
       <el-col :span="7" :offset="9">
         <div class="header-conroll">
-          <change-langs></change-langs>
+          <el-badge class="item">
+           <change-langs></change-langs>
+          </el-badge>
           <el-badge class="item">
             <i class="iconfont icon-smile"></i>
           </el-badge>
-          <el-badge :value="msgView" class="item" :hidden="msgView==0" @click="sayMsg">
-            <i class="msgViews" :class="this.msgIcon ? 'el-icon-message-solid' : 'el-icon-bell'"></i>
+          <el-badge :value="msgView" class="item" :hidden="msgView==0">
+            <span  @click="sayMsg">
+              <i class="msgViews" :class="this.msgIcon ? 'el-icon-message-solid' : 'el-icon-bell'"></i>
+            </span>
           </el-badge>
           <div class="header-wrap text-r">
             <el-dropdown>
@@ -127,6 +131,7 @@ export default {
       this.$store.dispatch("changeChangePass", true);
     },
     sayMsg() {
+      console.log(11);
       if (this.msgIcon) {
         this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
           confirmButtonText: "确定",
