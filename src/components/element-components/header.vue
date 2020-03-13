@@ -166,7 +166,7 @@ export default {
         console.log(res);
         await $message.success(res.msg);
         setUserInfo(null);
-        $router.replace("/admin");
+        $router.replace("/login");
       } catch (err) {
         err && $message.warn(err.msg);
       }
@@ -205,6 +205,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 .header-wrap {
   display: inline-block;

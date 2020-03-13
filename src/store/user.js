@@ -16,9 +16,9 @@ export  default ({
     ['SET_USER_INFO'] (state, userInfo) {
       state.userInfo = userInfo
       if (!userInfo) {
-        sessionStorage.remove('user_info');
+        session.remove('user_info');
       } else {
-        sessionStorage.set('user_info', userInfo);
+        session.set('user_info', userInfo);
       }
     }
   },

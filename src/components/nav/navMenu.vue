@@ -1,6 +1,6 @@
 <template>
   <!-- <el-aside width="200px" style="background-color: rgb(238, 241, 246)"> -->
-  <div class="side-menu">
+  <div class="side-menu" width="200px">
     <!-- default-active="1-4-1" -->
 
     <el-menu

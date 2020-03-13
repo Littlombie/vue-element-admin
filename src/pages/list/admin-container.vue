@@ -97,6 +97,7 @@ export default {
 <style lang="scss">
 .admin-container {
   margin-top: 20px;
+  background-color: #e9e9e9;
 
   .el-header {
     background-color: #b3c0d1;
@@ -128,7 +129,6 @@ export default {
   .el-main,
   #myChart {
     padding: 20px;
-    background: #fff;
     box-sizing: border-box;
   }
 }

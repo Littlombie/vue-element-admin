@@ -1,9 +1,9 @@
 <template>
   <el-container>
-    <el-container>
       <v-aside></v-aside>
-      <el-main class="main-body">
-        <v-header></v-header>
+    <el-container style="position: relative">
+      <v-header></v-header>
+      <el-main>
         <router-view />
       </el-main>
     </el-container>
@@ -30,7 +30,15 @@ export default {
     "v-changepass": chanPass,
     "v-info": Info,
     "v-number-add": numberAdd
-  }
+  },
+  created(){
+
+  },
+  methods: {
+    resize () {
+
+    }
+  },
 };
 </script>
 
@@ -60,8 +68,11 @@ export default {
   color: #333;
   text-align: left;
   // line-height: 160px;
+  &>div {
+    background: #fff;
+    padding: 20px;
+  }
 }
-
 body > .el-container {
   margin-bottom: 40px;
 }
