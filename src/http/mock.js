@@ -38,6 +38,25 @@ export const login =  Mock.mock('api/login', (req, res) => {
             'tel': '@natural(13000000000, 18999999999)'
           }
       })
+      // {
+      //   'code': 200,
+      //   'msg': '登录成功',
+      //   'data': function({
+      //     _req
+      //   }) {
+      //     if (_req.body.username == 'admin' && _req.body.password == '123456') {
+      //       return {
+      //         'date': Random.date('@date()'),
+      //         'address': Random.county( true ),
+      //         'avatar': Random.dataImage('200x100', 'Admin'),
+      //         // '@dataImage("200x100", "@cname()")'
+      //         'name': Random.cname(),
+      //         'desc': Random.csentence(),
+      //         'tel': Random.natural('@natural(13000000000, 18999999999)')
+      //       }
+      //     }
+      //   }
+      // }
     } else {
       return {
         code: 402,
@@ -57,4 +76,44 @@ export const loginOut = Mock.mock('api/loginOut', (req, res) => {
     'msg': '退出成功',
     'data': []
   })
+})
+
+export const process = Mock.mock('api/getProcess', (req, res) => {
+  return Mock.mock (
+    {
+      "code": 200,
+      "data": [{
+          "id": 0,
+          "name": "总流程数",
+          'number|1-1000': 100,
+          "img": "../images/u86.png"
+        },
+    
+        {
+          "id": 1,
+          "name": "待审核",
+          'number|1-1000': 1,
+          "img": "../images/u7253.jpg"
+        },
+        {
+          "id": 2,
+          "name": "已审核",
+          'number|1-1000': 1,
+          "img": "../images/u25820.png"
+        },
+        {
+          "id": 3,
+          "name": "已申请",
+          'number|1-1000': 1,
+          "img": "../images/u61055.jpg"
+        },
+        {
+          "id": 4,
+          "name": "待阅读",
+          'number|1-1000': 1,
+          "img": "../images/u61074.png"
+        }
+      ]
+    }
+  )
 })

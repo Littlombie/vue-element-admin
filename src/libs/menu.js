@@ -1,5 +1,5 @@
 export default [{
-    icon: 'el-icon-location',
+    icon: 'el-icon-cpu',
     title: '组件',
     code: 1,
     router: 'temp',

@@ -1,5 +1,5 @@
 <template>
-  <el-header style="text-align: right; font-size: 12px">
+  <el-header>
     <el-row>
       <el-col
         :span="2"
@@ -168,7 +168,9 @@ export default {
         setUserInfo(null);
         $router.replace("/login");
       } catch (err) {
-        err && $message.warn(err.msg);
+        console.log(err);
+        err && $message('已取消');
+        // $message.warning(err.msg);
       }
     }
   },
@@ -200,12 +202,13 @@ export default {
 </style>
 <style lang="scss" scoped>
 .el-header {
-  position: absolute;
-  z-index: 9;
-  top: 0;
-  left: 0;
   width: 100%;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  box-shadow: 2px 8px 8px rgba(117, 116, 116, 0.14);
+  text-align: right; 
+  font-size: 12px;
+  .header-conroll {
+    text-align: right;
+  }
 }
 .header-wrap {
   display: inline-block;
@@ -240,7 +243,11 @@ export default {
 
 .el-button {
   padding: 6px 10px;
-  & > span {
+  &.toogle-buttons {
+    // background: #dedede;
+    vertical-align: middle;
+  }
+  ::v-deep & > span {
     height: 20px;
   }
   .is-active {

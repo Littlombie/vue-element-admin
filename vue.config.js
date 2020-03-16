@@ -1,4 +1,5 @@
 module.exports = {
+  outputDir:process.env.outputDir,
   configureWebpack: config => {
     config.module.rules.push({
         test: /\.md$/,

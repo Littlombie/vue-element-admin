@@ -2,7 +2,10 @@
   <el-container>
       <v-aside></v-aside>
     <el-container style="position: relative">
-      <v-header></v-header>
+      <div class="container-header">
+        <v-header></v-header>
+        <v-tab-nav></v-tab-nav>
+      </div>
       <el-main>
         <router-view />
       </el-main>
@@ -16,7 +19,8 @@
 import header from '../../components/element-components/header'
 import aside from '../../components/nav/navMenu'
 import chanPass from '../../components/form/changePass'
-import Info from "../../components/element-components/info";
+import tabNav from '../../components/nav/nav-tab'
+import Info from "../../components/element-components/info"
 import numberAdd from '../../components/element-components/numberAdd'
 export default {
   data () {
@@ -29,7 +33,8 @@ export default {
     "v-header": header,
     "v-changepass": chanPass,
     "v-info": Info,
-    "v-number-add": numberAdd
+    "v-number-add": numberAdd,
+    "v-tab-nav": tabNav
   },
   created(){
 
@@ -46,10 +51,17 @@ export default {
 .el-container {
   height: 100%;
 }
+.container-header {
+  position: absolute;
+  width: 100%;
+  z-index: 9;
+  top: 0;
+  left: 0;
+}
 .el-header,
 .el-footer {
-  background-color: #b3c0d1;
-  color: #333;
+  background-color: rgb(81, 90, 110);
+  color: #fff;
   text-align: center;
   line-height: 60px;
 }
@@ -60,17 +72,18 @@ export default {
   text-align: center;
   line-height: 200px;
 }
-
 .el-main {
   position: relative;
-  padding-top: 80px;
-  background-color: #e9eef3;
+  // padding-top: 80px;
+  margin-top: 100px;
+  // background-color: #e9eef3;
   color: #333;
   text-align: left;
   // line-height: 160px;
   &>div {
-    background: #fff;
+    min-height: 780px;
     padding: 20px;
+    background: #fff;
   }
 }
 body > .el-container {
@@ -78,7 +91,14 @@ body > .el-container {
 }
 .el-aside {
   height: 100%;
-  border-right: 1px solid #cccccc;
+}
+.side-menu {
+  border-right: 1px solid rgba(255,255,255,0);
+  background: #f7f7f7;
+  ::v-deep .el-menu {
+    border-right: 0;
+    background: #f7f7f7;
+  }
 }
 .nav-list {
   width: 100%;

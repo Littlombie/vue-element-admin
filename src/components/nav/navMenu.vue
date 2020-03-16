@@ -62,10 +62,10 @@ export default {
   },
   methods: {
     handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
     },
     handleClose(key, keyPath) {
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
     }
   },
   components: {
@@ -96,7 +96,9 @@ export default {
   }
   .el-nav-item {
     .el-menu-item {
-      margin-left: 10px;
+      span {
+        padding-left: 10px;
+      }
     }
   }
 }

@@ -3,25 +3,25 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import Login from '@/pages/user/login'
-import Admin from '@/pages/admin/admin'
-import Dashboard from '@/pages/dashboard/dashboard'
-import ComponentList from '@/pages/components/components'
-import Overview from '@/pages/overview/overview'
-import List from '@/pages/list/list'
-import AdminContainer from '@/pages/list/admin-container'
-import Tab from '@/pages/list/tab'
-import stepMap from '@/pages/list/stepMap'
-import parctice from '@/pages/list/parctice'
+import Login from '@/views/user/login'
+import Admin from '@/views/admin/admin'
+import Dashboard from '@/views/dashboard/dashboard'
+import ComponentList from '@/views/components/components'
+import Overview from '@/views/overview/overview'
+import List from '@/views/list/list'
+import AdminContainer from '@/views/list/admin-container'
+import Tab from '@/views/list/tab'
+import stepMap from '@/views/list/stepMap'
+import parctice from '@/views/list/parctice'
 
-import Form from '@/pages/form/form'
-import Check from '@/pages/form/check'
-import FormList from '@/pages/form/form-list'
-import addressSelect from '@/pages/form/address'
-import validForm from '@/pages/form/validForm'
+import Form from '@/views/form/form'
+import Check from '@/views/form/check'
+import FormList from '@/views/form/form-list'
+import addressSelect from '@/views/form/address'
+import validForm from '@/views/form/validForm'
 
-import Others from '@/pages/othersPage/others'
-import Markdowm from '@/pages/othersPage/markdown'
+import Others from '@/views/othersPage/others'
+import Markdowm from '@/views/othersPage/markdown'
 
 
 // 重写路由方法

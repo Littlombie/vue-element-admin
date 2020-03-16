@@ -88,7 +88,7 @@ export default {
       this.$http
         .tabList()
         .then(resp => {
-          if (resp) {
+          if (resp) { 
             if (resp.code == 200) {
               this.tableData = resp.data;
               this.totalCount = resp.data.length * 10;

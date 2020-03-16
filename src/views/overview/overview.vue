@@ -10,7 +10,7 @@
 
 <script>
   import overviewContent from '../../components/markdown/overview-content.md' 
- import Overview from '../../components/element-components/overview'
+  import Overview from '../../components/element-components/overview'
   export default {
       components: {
         'v-overview': Overview,

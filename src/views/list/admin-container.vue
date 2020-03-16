@@ -1,6 +1,6 @@
 <template>
   <div class="admin-container">
-    <el-container style="height: 500px; border: 1px solid #eee">
+    <el-container style="height: 500px">
       <el-main>
         <div class="dropdown">
           <el-dropdown>
@@ -97,10 +97,10 @@ export default {
 <style lang="scss">
 .admin-container {
   margin-top: 20px;
-  background-color: #e9e9e9;
+  // background-color: #e9e9e9;
 
   .el-header {
-    background-color: #b3c0d1;
+    // background-color: #b3c0d1;
     color: #333;
     line-height: 60px;
   }
@@ -111,6 +111,7 @@ export default {
   .el-main {
     position: relative;
     margin-right: 20px;
+    border: 1px solid #eee;
     .dropdown {
       position: absolute;
       right: 10px;
@@ -130,6 +131,7 @@ export default {
   #myChart {
     padding: 20px;
     box-sizing: border-box;
+    border: 1px solid #eee;
   }
 }
 </style>

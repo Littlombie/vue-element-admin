@@ -61,7 +61,7 @@ export default {
             console.log(res);
             if (res && res.code ===200) {
               _this.setUserInfo(res.data)
-              _this.$router.replace('/components/admin-container');
+              _this.$router.push({name: 'adminContainer'});
               loginStatus = 'success'
             } else {
               _this.submitLoad = false;
@@ -71,6 +71,7 @@ export default {
             _this.$message[loginStatus](res.msg);
           })(data)
         } else {
+          _this.submitLoad = false;
           this.showTips();
         }
       })

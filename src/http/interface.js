@@ -16,7 +16,7 @@ export default {
   tabList: options => axios({ url: 'api/tabList', method: 'get', options }),
   login: data => axios({ url: 'api/login', method: 'post', data }),
   logout: () => axios({ url: 'api/loginOut', method: 'post' }),
-  getProcess: () => axios({ url: '/json/getProcess.json', method: 'get' })
+  getProcess: () => axios({ url: 'api/getProcess', method: 'get' })
 }
 
 // export default {
