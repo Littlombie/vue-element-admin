@@ -1,24 +1,31 @@
-/*
- * @Author: Littlombie
- * @Date: 2020-03-17 11:06:32
- * @lastEditors: Littlombie
- * @LastEditTime: 2020-03-17 11:32:57
- */
+
 import {session} from '../common/storage';
 export default({
   state: {
-    tags: session.get('router_tags')
+    tags: session.get('router_tags') || []
   },
   getters: {
     ['GET_ROUTERTAGS']: state => {
+      console.log(state.tags);
       return state.tags || []
     },
   },
   mutations: {
     ['SET_ROUTERTAGS'](state, tag){
-      console.log(tag, state.tags);
-      // state.tags.push(tag)
-      // session.set('router_tags', state.tags)
+      console.log(tag, state);
+      let isRepeat = false;
+      state.tags.forEach(item => {
+        if (item.name == tag.name) {
+          isRepeat = true;
+          if (JSON.stringify(item.query) !== JSON.stringify(tag.query)) {
+            item.query = tag.query
+          }
+        }
+      });
+      if (!isRepeat) {
+        state.tags.push(tag);
+      }
+      session.set('router_tags', state.tags)
     },
   },
   actions: {

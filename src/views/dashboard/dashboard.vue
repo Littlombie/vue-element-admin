@@ -79,6 +79,7 @@ export default {
   // background-color: #e9eef3;
   color: #333;
   text-align: left;
+  padding: 10px;
   // line-height: 160px;
   &>div {
     min-height: 780px;
