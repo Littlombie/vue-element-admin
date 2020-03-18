@@ -27,10 +27,29 @@ export default({
       }
       session.set('router_tags', state.tags)
     },
+    ['CLOSE_ROUTERTAG'](state, tag) {
+      state.tags = state.tags.filter(item => JSON.stringify(item.routerName) !== JSON.stringify(tag.routerName));
+      console.log(state.tags);
+      session.set('router_tags', state.tags)
+    },
+    ['REMOVE_TAGS'](state) {
+      if (state.tags) {
+        state.tags = [];
+        session.remove('router_tags');
+      }
+    }
   },
   actions: {
     ['SET_ROUTERTAGS']({commit}, tag) {
       commit('SET_ROUTERTAGS', tag)
+    },
+    ['CLOSE_ROUTERTAG']({commit}, tag) {
+      console.log(tag);
+      commit('CLOSE_ROUTERTAG', tag)
+    },
+    ['REMOVE_TAGS']({commit}, tag){
+      console.log(tag);
+      commit('REMOVE_TAGS', tag)
     }
   }
 })

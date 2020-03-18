@@ -57,6 +57,11 @@ export default [{
       sub: [],
     }, {
       icon: '',
+      title: '表单联动校验',
+      router: 'formValid',
+      sub: [],
+    }, {
+      icon: '',
       title: '地址三联选',
       router: 'addressSelect',
       sub: [],

@@ -111,7 +111,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      setUserInfo: "SET_USER_INFO"
+      setUserInfo: "SET_USER_INFO",
+      removeTags: "REMOVE_TAGS",
     }),
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
@@ -156,7 +157,7 @@ export default {
       }
     },
     async loginOut() {
-      const { $confirm, $http, $message, $router, setUserInfo } = this;
+      const { $confirm, $http, $message, $router, setUserInfo, removeTags } = this;
 
       try {
         await $confirm("此操作将退出登录, 是否继续?", "提示", {
@@ -167,6 +168,7 @@ export default {
         await $message.success(res.msg);
         setUserInfo(null);
         $router.replace("/login");
+        removeTags();
       } catch (err) {
         console.log(err);
         err && $message('已取消');

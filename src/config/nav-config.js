@@ -102,6 +102,14 @@ export default [{
         component: FormList
       },
       {
+        path: 'formValid',
+        name: 'formValid',
+        meta: {
+          title: '表演校验2',
+        },
+        component: formValid
+      },
+      {
         path: 'addressSelect',
         name: 'addressSelect',
         meta: {

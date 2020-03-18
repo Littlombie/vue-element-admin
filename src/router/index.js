@@ -19,6 +19,7 @@ import Check from '@/views/form/check'
 import FormList from '@/views/form/form-list'
 import addressSelect from '@/views/form/address'
 import validForm from '@/views/form/validForm'
+import formValid from '@/views/form/formValid2'
 
 import Others from '@/views/othersPage/others'
 import Markdowm from '@/views/othersPage/markdown'
@@ -53,7 +54,7 @@ const vueRouter = new Router({
       path: '/login',
       name: 'logn',
       meta: {
-        title: 'Login'
+        title: '登录'
       },
       component: Login
     },
@@ -61,14 +62,14 @@ const vueRouter = new Router({
       path: '/dashboard',
       name: 'dashboard',
       meta: {
-        title: 'Dashboard'
+        title: '仪表板'
       },
       component: Dashboard,
       children: [{
           path: '/components',
           name: 'components',
           meta: {
-            title: 'Components'
+            title: '组件'
           },
           component: ComponentList,
           children: [{
@@ -83,35 +84,35 @@ const vueRouter = new Router({
               path: 'admin-container',
               name: 'adminContainer',
               meta: {
-                title: 'AdminContainer',
+                title: '控制中心',
               },
               component: AdminContainer
             }, {
               path: 'list',
               name: 'list',
               meta: {
-                title: 'List',
+                title: '列表',
               },
               component: List
             }, {
               path: 'tab',
               name: 'tab',
               meta: {
-                title: 'Tab',
+                title: '选项卡',
               },
               component: Tab
             }, {
               path: 'stepMap',
               name: 'stepMap',
               meta: {
-                title: 'stepMap',
+                title: '流程图',
               },
               component: stepMap
             },{
               path: 'parctice',
               name: 'parctice',
               meta: {
-                title: 'parctice',
+                title: '测试',
               },
               component: parctice
             }
@@ -146,6 +147,14 @@ const vueRouter = new Router({
                 title: 'form-list',
               },
               component: FormList
+            },
+            {
+              path: 'formValid',
+              name: 'formValid',
+              meta: {
+                title: '表单联动校验'
+              },
+              component: formValid
             },
             {
               path: 'addressSelect',

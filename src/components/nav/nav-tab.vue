@@ -1,21 +1,23 @@
 <template>
   <div class="tab-list">
     <div class="tag-controller" :style="tabWidth">
-      <div class="arrow-controller arrow-left">
+      <div class="arrow-controller arrow-left" @click="turnLeft">
         <i class="iconfont el-icon-caret-left" :class="{}"></i>
       </div>
-      <div class="tag-list">
+      <div class="tag-list" ref="scrollTags">
         <el-tag 
-          v-for="(tag, index) in getRouterTags" 
-          :key="index" closable 
+          v-for="(tag, index) in routerTags" 
+          :key="index"  
+          :closable="closable"
           :type="tag.current ? '' : 'info'" 
           :class="{current:$route.name == tag.routerName}" 
+          :disable-transitions="true"
           @click="to(tag)"
           @close="close(tag, index)">
           {{tag.name}}
         </el-tag>
       </div>
-      <div class="arrow-controller arrow-right">
+      <div class="arrow-controller arrow-right" @click="turnRight">
         <i class="iconfont el-icon-caret-right" :class="{}"></i>
       </div>
     </div>
@@ -31,13 +33,25 @@ import {mapState, mapGetters, mapActions} from 'vuex'
     data () {
       return {
         currentTag: null,
-        tabWidth: {
-          // width: 0
-        }
+        closable: false,
+        tabWidth: {},
+        scrollX:null
       }
     },
     watch: {
+      routerTags: {
+        handler(newVal, oldVal) {
+          if(newVal.length == 1){
+            this.closable = false
+          }else {
+            this.closable = true
+          }
+        },
+        deep: true,
+        immediate: true 
+      },
       $route (to, from) {
+        console.log(to);
         const currentTag = {
           routerName: to.name,
           name: to.meta.title,
@@ -46,40 +60,71 @@ import {mapState, mapGetters, mapActions} from 'vuex'
         this.setRouterTags(currentTag);
         this.setCurrentTag(currentTag);
       },
+      scrollX: {
+        handler(newVal, oldVal) {
+          console.log(newVal);
+        }
+      },
     },
     created () {
-      
+      this.init()
+    },
+    mounted (){
+      this.$nextTick(()=> {
+        console.log(this.$refs, this.$refs.scrollTags.scrollLeft);
+        this.scrollX = this.$refs.scrollTags.scrollLeft;
+      })
     },
     computed: {
       // ...mapState({
       //   getRouterTags: state => state.tabs.tags
       // }),
       ...mapGetters({
-        getRouterTags: 'GET_ROUTERTAGS'
+        routerTags: 'GET_ROUTERTAGS'
       })
     },
     methods: {
+      init() {
+        const currentTag = {
+          name: this.$route.meta.title,
+          routerName: this.$route.name,
+          query: this.$route.query
+        }
+        this.setRouterTags(currentTag);
+        this.setCurrentTag(currentTag);
+      },
       to(route) {
         this.$router.push({
           name: route.routerName, 
           query: route.query
         })
       },
+      turnLeft() {
+
+      },
+      turnRight() {
+        
+      },
       close(route, index) {
+        if (this.routerTags.length === 1) {
+          return;
+        }
+        if (this.$route.name === route.routerName) {
+          const witch = index - 1 < 0 ? (index) : (index - 1);
+          this.$router.push({
+            name: this.routerTags[witch].routerName,
+            query: this.routerTags[witch].query
+          });
+        }
         console.log(route, index);
+        this.closeRouterTag(route)
       },
       setCurrentTag (tag) {
         console.log(tag);
-        // this.getRouterTags = this.getRouterTags.map(item => {
-        //   item.currentTag = false;
-        //   if (item.name == tag.name) {
-        //     item.currentTag = true
-        //   }
-        //   return item;
-        // });
       },
       ...mapActions({
-        setRouterTags: 'SET_ROUTERTAGS'
+        setRouterTags: 'SET_ROUTERTAGS',
+        closeRouterTag: 'CLOSE_ROUTERTAG'
       })
     }
   }
@@ -98,12 +143,16 @@ import {mapState, mapGetters, mapActions} from 'vuex'
       display: flex;
       justify-content: space-between;
       align-items: center;
+      width: 100%;
       height: 40px;
+      // overflow-x: scroll;
       .tag-list {
-        width: 100%;
+        width: ~'calc(100% - 60px)';
         height: 40px;
         padding: 4px 0;
-        overflow: hidden;
+        overflow-x: auto;
+        display: flex;
+        justify-content: flex-start;
         .el-tag {
           margin: 0 2px;
           color: #909399;

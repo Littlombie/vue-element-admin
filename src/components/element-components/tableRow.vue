@@ -1,5 +1,6 @@
 <template>
   <div class="vlt-card">
+    <h4>表格单元格合并</h4>
     <el-table :data="tableData6" :span-method="arraySpanMethod" border style="width: 100%">
       <el-table-column prop="id" label="ID" width="180"></el-table-column>
       <el-table-column prop="name" label="姓名"></el-table-column>
