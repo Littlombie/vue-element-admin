@@ -15,10 +15,8 @@ import stepMap from '@/views/list/stepMap'
 import parctice from '@/views/list/parctice'
 
 import Form from '@/views/form/form'
-import Check from '@/views/form/check'
 import FormList from '@/views/form/form-list'
 import addressSelect from '@/views/form/address'
-import validForm from '@/views/form/validForm'
 import formValid from '@/views/form/formValid2'
 
 import Others from '@/views/othersPage/others'
@@ -125,26 +123,12 @@ const vueRouter = new Router({
             title: 'Form'
           },
           component: Form,
-          children: [{
-              path: 'check',
-              name: 'check',
-              meta: {
-                title: 'Check',
-              },
-              component: Check
-            }, {
-              path: 'validForm',
-              name: 'validForm',
-              meta: {
-                title: 'validForm'
-              },
-              component: validForm
-            },
+          children: [
             {
               path: 'formList',
               name: 'formList',
               meta: {
-                title: 'form-list',
+                title: '表单验证',
               },
               component: FormList
             },
@@ -160,7 +144,7 @@ const vueRouter = new Router({
               path: 'addressSelect',
               name: 'addressSelect',
               meta: {
-                title: 'address-select'
+                title: '地址三联选'
               },
               component: addressSelect
             }

@@ -18,7 +18,7 @@ switch (process.env.VUE_APP_MODE) {
   default:
       baseURL = axios.defaults.baseURL = "http://10.6.0.103:8081/bms/api";
 }
-console.log('url', baseURL);
+// console.log('url', baseURL);
 export default {
   method: 'post',
   // 基础url前缀
@@ -31,7 +31,7 @@ export default {
   data: {},
   // 设置超时时间
   timeout: 10000,
-  // 携带凭证
+  // 跨域携带凭证
   withCredentials: false,
   // 返回数据类型
   responseType: 'json'

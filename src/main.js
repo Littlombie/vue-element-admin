@@ -8,6 +8,7 @@ import './plugins/element.js'
 import echarts from 'echarts' 
 import i18n from './i18n/i18n';
 import { storage, session } from './common/storage'
+import rules from './utils/rules'
 
 import 'prismjs/themes/prism.css'
 import './assets/css/markdown-segmentfault.css';
@@ -21,6 +22,7 @@ Vue.config.productionTip = false;
 Vue.prototype.$echarts = echarts;
 Vue.prototype.$storage = storage;
 Vue.prototype.$session = session;
+Vue.prototype.$rules = rules;
 
 
 new Vue({

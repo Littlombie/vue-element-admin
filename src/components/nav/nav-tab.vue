@@ -51,7 +51,7 @@ import {mapState, mapGetters, mapActions} from 'vuex'
         immediate: true 
       },
       $route (to, from) {
-        console.log(to);
+        // console.log(to);
         const currentTag = {
           routerName: to.name,
           name: to.meta.title,
@@ -62,7 +62,7 @@ import {mapState, mapGetters, mapActions} from 'vuex'
       },
       scrollX: {
         handler(newVal, oldVal) {
-          console.log(newVal);
+          // console.log(newVal);
         }
       },
     },
@@ -71,7 +71,7 @@ import {mapState, mapGetters, mapActions} from 'vuex'
     },
     mounted (){
       this.$nextTick(()=> {
-        console.log(this.$refs, this.$refs.scrollTags.scrollLeft);
+        // console.log(this.$refs, this.$refs.scrollTags.scrollLeft);
         this.scrollX = this.$refs.scrollTags.scrollLeft;
       })
     },
@@ -120,7 +120,7 @@ import {mapState, mapGetters, mapActions} from 'vuex'
         this.closeRouterTag(route)
       },
       setCurrentTag (tag) {
-        console.log(tag);
+        // console.log(tag);
       },
       ...mapActions({
         setRouterTags: 'SET_ROUTERTAGS',

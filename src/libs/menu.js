@@ -40,19 +40,9 @@ export default [{
     title: '表单',
     router: 'forms',
     code: 2,
-    sub: [{
-      icon: '',
-      title: '表单',
-      router: 'check',
-      sub: [],
-    }, {
+    sub: [ {
       icon: '',
       title: '表单验证',
-      router: 'validForm',
-      sub: [],
-    }, {
-      icon: '',
-      title: '表单验证2',
       router: 'formList',
       sub: [],
     }, {
