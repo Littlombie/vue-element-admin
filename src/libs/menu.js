@@ -10,7 +10,7 @@ export default [{
       sub: [],
     }, {
       icon: '',
-      title: '组件',
+      title: '控制中心',
       router: 'adminContainer',
       sub: [],
     }, {

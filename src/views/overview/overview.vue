@@ -1,6 +1,6 @@
 <template>
-  <div class="page-overview">
-    <v-overview></v-overview>
+  <div class="main-page page-overview">
+    <!-- <v-overview></v-overview> -->
     <div class="p20">
       <overview-content>
       </overview-content>

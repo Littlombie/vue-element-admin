@@ -1,5 +1,5 @@
 <template>
-  <div class="views-box ">
+  <div class="main-page views-box ">
     <form action class="form">
       <div class="label-box">
         <label>单选框:</label>

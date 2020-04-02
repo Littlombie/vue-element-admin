@@ -1,5 +1,10 @@
 <template>
-  <div class="admin-container">
+  <div class="main-page admin-container">
+    <v-overview></v-overview>
+    <v-panel :title="'标题'" :dropMenu="menuOptions" :width="500">
+      <template v-slot:panelContent>
+      </template>
+    </v-panel>
     <el-container style="height: 500px">
       <el-main>
         <div class="dropdown">
@@ -27,7 +32,7 @@
 </template>
 
 <script>
-
+import Overview from '../../components/element-components/overview'
 export default {
   data() {
     const item = {
@@ -36,7 +41,10 @@ export default {
       address: "上海市普陀区金沙江路 1518 弄"
     };
     return {
-      tableData: Array(20).fill(item)
+      tableData: Array(20).fill(item),
+      menuOptions: [{
+        name: 'aaa'
+      }]
     };
   },
   mounted() {
@@ -90,15 +98,15 @@ export default {
       myChart.setOption(option);
     }
   },
-  components: {}
+  components: {
+    'v-overview': Overview
+  }
 };
 </script>
 
 <style lang="scss">
 .admin-container {
-  margin-top: 20px;
-  // background-color: #e9e9e9;
-
+  background-color: #f8f9fc;
   .el-header {
     // background-color: #b3c0d1;
     color: #333;
@@ -107,6 +115,9 @@ export default {
 
   .el-aside {
     color: #333;
+  }
+  .el-container {
+    margin-top: 20px;
   }
   .el-main {
     position: relative;

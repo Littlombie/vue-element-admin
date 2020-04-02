@@ -1,5 +1,5 @@
 <template>
-  <div class="item-box left-item">
+  <div class="main-page item-box left-item">
     <p class="box-item-title">Form List:</p>
     <el-form
       :model="ruleForm"

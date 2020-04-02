@@ -1,5 +1,5 @@
 <template>
-  <el-row type="flex" :gutter="20" class="row-bg" justify="space-around">
+  <el-row type="flex" :gutter="20" class="row-bg" justify="space-between">
     <el-col v-for="(item, index) in list" :key="index" :span="4">
       <div class="grid-content bg-purple">
         <img :src="item.img" alt class="overview-img" />
@@ -13,7 +13,6 @@
 </template>
 
 <script>
-
 import numberAdd from '../../components/element-components/numberAdd'
 export default {
   data() {
@@ -50,11 +49,50 @@ export default {
 
 <style lang="scss" scoped>
 .row-bg {
-  padding: 10px 0;
+  padding: 10px;
   // background-color: #f9fafc;
   .el-col {
-    border: 1px solid rgba(235, 235, 235, 1);
-    background-color: #f9fafc;
+    position: relative;
+    width: 19%;
+    overflow: hidden;
+    border: 1px solid  #f9f9f9;
+    background-color: #fff;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+    border-radius: 4px;
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+    }
+    &:nth-child(1) {
+      &:before {
+        background: #a894f6;
+      }
+    }
+    &:nth-child(2) {
+      &:before {
+        background: #f4cdca;
+      }
+    }
+    &:nth-child(3) {
+      &:before {
+        background: #009eff;
+      }
+    }
+    &:nth-child(4) {
+      &:before {
+        background: #ffe8a7;
+      }
+    }
+    &:nth-child(5) {
+      &:before {
+        background: #fcf9a6;
+      }
+    }
     &.el-col-4 {
       padding: 20px !important;
     }

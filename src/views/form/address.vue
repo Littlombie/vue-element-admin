@@ -1,5 +1,5 @@
 <template>
-  <div class="views-box">
+  <div class="main-page views-box">
     <div>
       <span class="imp">1. 二级联动（不带“全部”选项）</span>
       <el-cascader

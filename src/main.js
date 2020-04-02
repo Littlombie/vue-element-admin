@@ -10,12 +10,15 @@ import i18n from './i18n/i18n';
 import { storage, session } from './common/storage'
 import rules from './utils/rules'
 
+import components from './components/common'
+
 import 'prismjs/themes/prism.css'
 import './assets/css/markdown-segmentfault.css';
 import './assets/css/style.less'
 
 
 Vue.use(api)
+Vue.use(components)
 
 Vue.config.productionTip = false;
 

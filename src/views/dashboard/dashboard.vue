@@ -7,7 +7,7 @@
         <v-tab-nav></v-tab-nav>
       </div>
       <el-main>
-        <router-view />
+        <router-view :class="{'admin-container': adminClass}" />
       </el-main>
     </el-container>
   <v-changepass ></v-changepass>
@@ -25,7 +25,22 @@ import numberAdd from '../../components/element-components/numberAdd'
 export default {
   data () {
     return {
-      showChangePass: false
+      showChangePass: false,
+      adminClass: false
+    }
+  },
+  watch: {
+    $route: {
+      handler (newVal) {
+        console.log(newVal);
+        if (newVal.name == 'adminContainer') {
+          this.adminClass = true;
+        } else {
+          this.adminClass = false;
+        }
+      },
+      deep: true,
+      immediate: true
     }
   },
   components: {
@@ -85,6 +100,9 @@ export default {
     min-height: 780px;
     padding: 20px;
     background: #fff;
+    &.admin-container{
+      background: #f8f9fc;
+    }
   }
 }
 body > .el-container {

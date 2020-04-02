@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-page">
     <h3>列表展示</h3>
     <div class="controll">
       <v-search @search="searchList"></v-search>

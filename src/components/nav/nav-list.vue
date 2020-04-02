@@ -56,6 +56,9 @@ export default {
       &:hover {
         cursor: pointer;
       }
+      .is-active {
+        background: #009eff29;
+      }
     }
   }
 }

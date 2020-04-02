@@ -42,6 +42,10 @@ import { mapState, mapGetters } from 'vuex'
         getInfo: 'GET_USER_INFO'
       })
     },
+    created () {
+      console.log(this.getInfo);
+      this.getInfo.address = this.getInfo.address.replace(/\s*/g,"");
+    },
      methods: {
       handleClose() {
         this.$store.dispatch("changeInfoDia", false);
@@ -54,6 +58,10 @@ import { mapState, mapGetters } from 'vuex'
 
   .info {
     text-align: center;
+     .el-dialog {
+      min-width: 500px;
+      border-radius: 10px;
+    }
     .el-dialog__body {
     text-align: center !important;
     }
