@@ -2,7 +2,7 @@
  * @Author: Littlombie
  * @Date: 2020-03-06 15:12:18
  * @lastEditors: Littlombie
- * @LastEditTime: 2020-03-06 17:16:53
+ * @LastEditTime: 2020-04-04 17:25:04
  */
 import enLocale from 'element-ui/lib/locale/lang/en' //引入element语言包
 const en = {
@@ -10,8 +10,9 @@ const en = {
         'Text': 'Everything goes smoothly!',
         'Info': 'Personal information',
         'LoginpPass': 'login password',
-        'SignOut': 'sign out'
+        'SignOut': 'sign out',
     },
+    'changeTheme': 'Switch',
     ...enLocale
 }
  

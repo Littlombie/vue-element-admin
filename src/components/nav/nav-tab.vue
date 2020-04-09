@@ -6,16 +6,18 @@
       </div>
       <div class="tag-list" ref="scrollTags">
         <el-tag 
+          class="tab-item"
           v-for="(tag, index) in routerTags" 
           :key="index"  
           :closable="closable"
           :type="tag.current ? '' : 'info'" 
-          :class="{current:$route.name == tag.routerName}" 
+          :class="[$route.name == tag.routerName ? [themeMode,'current']: '' ]"
           :disable-transitions="true"
           @click="to(tag)"
           @close="close(tag, index)">
           {{tag.name}}
         </el-tag>
+          <!-- :class="{current:$route.name == tag.routerName}"  -->
       </div>
       <div class="arrow-controller arrow-right" @click="turnRight">
         <i class="iconfont el-icon-caret-right" :class="{}"></i>
@@ -80,7 +82,8 @@ import {mapState, mapGetters, mapActions} from 'vuex'
       //   getRouterTags: state => state.tabs.tags
       // }),
       ...mapGetters({
-        routerTags: 'GET_ROUTERTAGS'
+        routerTags: 'GET_ROUTERTAGS',
+        themeMode: 'THEME_MODE'
       })
     },
     methods: {

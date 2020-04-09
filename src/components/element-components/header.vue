@@ -49,7 +49,7 @@
           <el-badge class="item">
             <i class="iconfont icon-smile"></i>
           </el-badge>
-          <el-badge :value="msgView" class="item" :hidden="msgView==0">
+          <el-badge :value="msgView" class="item item-msg" :hidden="msgView==0">
             <span  @click="sayMsg">
               <i class="msgViews" :class="this.msgIcon ? 'el-icon-message-solid' : 'el-icon-bell'"></i>
             </span>
@@ -241,6 +241,13 @@ export default {
 .msgViews {
   font-size: 20px;
   cursor: pointer;
+}
+.item-msg {
+  ::v-deep .el-badge__content {
+    border-radius: 10px;
+    min-width: 20px;
+    min-height: 20px;
+  }
 }
 
 .el-button {

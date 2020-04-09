@@ -1,10 +1,11 @@
 <template>
   <div class="number-grow-warp">
-    <span ref="numberGrow" :data-time="time" class="number-grow" :data-value="value">0</span>
+    <span ref="numberGrow" :data-time="time"  class="number-grow" :class="themeMode" :data-value="value">0</span>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   props: {
     time: {
@@ -15,6 +16,11 @@ export default {
       type: Number,
       default: 0
     }
+  },
+  computed: {
+    ...mapGetters({
+      themeMode: 'THEME_MODE'
+    })
   },
   methods: {
     numberGrow(ele) {

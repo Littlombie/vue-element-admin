@@ -1,6 +1,6 @@
 <template>
   <div class="views-box">
-    ssssss
+    流程图
     <!-- <div ref='myDiagramDiv' style="min-width:500px; width: 100%;height:350px"></div> -->
   </div>
 </template>

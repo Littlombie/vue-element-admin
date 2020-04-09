@@ -16,11 +16,11 @@ import 'prismjs/themes/prism.css'
 import './assets/css/markdown-segmentfault.css';
 import './assets/css/style.less'
 
-
 Vue.use(api)
 Vue.use(components)
 
 Vue.config.productionTip = false;
+
 
 Vue.prototype.$echarts = echarts;
 Vue.prototype.$storage = storage;

@@ -4,7 +4,7 @@
       <div class="grid-content bg-purple">
         <img :src="item.img" alt class="overview-img" />
         <div class="overview-info">
-          <h2><v-number-add :value="item.number"></v-number-add></h2>
+          <h2 ><v-number-add :value="item.number"></v-number-add></h2>
           <p>{{item.name}}</p>
         </div>
       </div>

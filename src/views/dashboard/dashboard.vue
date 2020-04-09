@@ -12,22 +12,31 @@
     </el-container>
   <v-changepass ></v-changepass>
   <v-info></v-info>
+  <v-change-theme></v-change-theme>
   </el-container>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 import header from '../../components/element-components/header'
 import aside from '../../components/nav/navMenu'
 import chanPass from '../../components/form/changePass'
 import tabNav from '../../components/nav/nav-tab'
 import Info from "../../components/element-components/info"
 import numberAdd from '../../components/element-components/numberAdd'
+import changeTheme from '../../components/element-components/changeTheme'
 export default {
   data () {
     return {
       showChangePass: false,
       adminClass: false
     }
+  },
+  computed: {
+    ...mapGetters({
+      themeMode : 'THEME_MODE'
+    }),
   },
   watch: {
     $route: {
@@ -49,7 +58,8 @@ export default {
     "v-changepass": chanPass,
     "v-info": Info,
     "v-number-add": numberAdd,
-    "v-tab-nav": tabNav
+    "v-tab-nav": tabNav,
+    "v-change-theme": changeTheme
   },
   created(){
 

@@ -4,6 +4,7 @@ import Init from '@/store/init.js'
 import Form from '@/store/form.js'
 import User from '@/store/user.js'
 import Tabs from '@/store/tabs.js'
+import ChangeTheme from '@/store/changeTheme.js'
 
 Vue.use(Vuex)
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
     init: Init,
     form: Form,
     user: User,
-    tabs: Tabs
+    tabs: Tabs,
+    changeTheme: ChangeTheme
   }
 })

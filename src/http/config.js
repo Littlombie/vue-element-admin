@@ -16,7 +16,7 @@ switch (process.env.VUE_APP_MODE) {
       baseURL = axios.defaults.baseURL = ""; // 119.136.27.9:28081/bms/api  //10.6.0.203:8081/bms/api
       break;
   default:
-      baseURL = axios.defaults.baseURL = "http://10.6.0.103:8081/bms/api";
+      baseURL = axios.defaults.baseURL = "";
 }
 // console.log('url', baseURL);
 export default {

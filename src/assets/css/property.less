@@ -1,3 +1,5 @@
+@import "./variable.less";
+
 .p20 {
   padding: 20px;
 }
@@ -8,4 +10,74 @@
 }
 .shadow {
   box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+}
+
+// @themeColorList: @themeBlue, @themeOrange, @themeGreen, @themePurple;
+// @themeClass: themeBlue, themeOrange, themeGreen, themePurple;
+
+// .loop(@i) when (@i < length(@themeColorList)+1){
+//   .@{themeClass} {
+//     color: extract(@themeColorList, @i)  !important;
+//   }
+//   .loop(@i+1);
+// }
+
+// .loop(1);
+
+.themeBlue{
+  color: @themeBlue, !important;
+  &.tab-item.current {
+    &:before {
+      background: @themeBlue, !important;
+    }
+    .el-icon-close {
+      color: @themeBlue;
+      &:hover {
+        background-color: @themeBlue;
+      }
+    }
+  }
+}
+.themeOrange{
+  color: @themeOrange !important;
+  &.tab-item.current {
+    &:before {
+      background: @themeOrange, !important;
+    }
+    .el-icon-close {
+      color: @themeOrange;
+      &:hover {
+        background-color: @themeOrange;
+      }
+    }
+  }
+}
+.themeGreen{
+  color: @themeGreen !important;
+  &.tab-item.current {
+    &:before {
+      background: @themeGreen, !important;
+    }
+    .el-icon-close {
+      color: @themeGreen;
+      &:hover {
+        background-color: @themeGreen;
+      }
+    }
+  }
+}
+.themePurple{
+  color: @themePurple !important;
+  &.tab-item.current {
+    &:before {
+      background: @themePurple, !important;
+    }
+    .el-icon-close {
+      color: @themePurple;
+      &:hover {
+        color: #FFF;
+        background-color: @themePurple;
+      }
+    }
+  }
 }
