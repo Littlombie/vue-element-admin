@@ -94,5 +94,10 @@ export default {
 };
 </script>
 
-<style lang="" scoped>
+<style lang="less" scoped>
+.login-form {
+  /deep/.el-form-item__content {
+    width: 100%;
+  }
+}
 </style>

@@ -2,12 +2,12 @@
  * @Author: Littlombie
  * @Date: 2020-03-19 11:02:53
  * @lastEditors: Littlombie
- * @LastEditTime: 2020-03-19 17:11:08
+ * @LastEditTime: 2020-04-10 09:53:39
  -->
 <template>
   <div class="form-content">
     <el-form :model="ruleForm" ref="ruleForm" :rules="rules" :inline="true" label-width="100px">
-      <div class="" v-for="(item, index) in ruleForm.compareArr" :key="index"> 
+      <div class="rule-item" v-for="(item, index) in ruleForm.compareArr" :key="index"> 
         <el-form-item :label="'比较值'+ (index+1)" required>
           <div>
             <el-form-item :prop="`compareArr.${index}.lowestValue`">
@@ -16,7 +16,7 @@
             <el-form-item :prop="`compareArr.${index}.highestValue`">
               <el-input v-model="item.highestValue" placeholder="请输入最高值"></el-input>
             </el-form-item>
-            <el-button v-if="ruleForm.compareArr.length > 1" @click="clearCompare(index)">删除</el-button>
+            <el-button class="btn-delete" v-if="ruleForm.compareArr.length > 1" @click="clearCompare(index)">删除</el-button>
           </div>
         </el-form-item>
       </div>
@@ -136,6 +136,24 @@ export default {
 </script>
 
 <style lang="less" scoped>
+  .rule-item  {
+    ::v-deep .el-form-item__content {
+      .el-form-item {
+        width: 48%;
+        margin-right: 0;
+        &:nth-child(2) {
+          margin-left: 4%;
+        }
+        .el-form-item__content {
+          width: 100%;
+        }
+      }
+    } 
+    .btn-delete {
+      position: absolute;
+      right: -80px;
+    }
+  }
   .add-btn {
     width: 400px;
     height: 40px;

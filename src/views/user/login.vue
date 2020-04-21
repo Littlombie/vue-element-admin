@@ -23,9 +23,7 @@ export default {
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to right bottom,
-#02c7fd 0%, #ff0202 100%);
-
+  background: linear-gradient(to right bottom #02c7fd 0%, #ff0202 100%);
   .login-panel {
     padding: 25px 30px;
     width: 30%;

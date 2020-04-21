@@ -4,7 +4,7 @@
     <!-- default-active="1-4-1" -->
 
     <el-menu
-      default-active="1-1-1"
+      :default-active="defaultUrl"
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
@@ -49,8 +49,12 @@ import navList from "@/components/nav/nav-list";
 export default {
   data() {
     return {
-      isCollapse: false
+      isCollapse: false,
+      defaultUrl: 'admin-container'
     };
+  },
+  watch: {
+    '$route': 'getPath'
   },
   computed: {
     ...mapState({
@@ -60,7 +64,14 @@ export default {
   created() {
     this.menuList = menuDatas;
   },
+  mounted () {
+    let href = this.$route.name
+    this.defaultUrl = href
+  },
   methods: {
+    getPath () {
+      this.defaultUrl = this.$route.name
+    },
     handleOpen(key, keyPath) {
       // console.log(key, keyPath);
     },

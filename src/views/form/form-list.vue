@@ -41,7 +41,7 @@
         ></el-date-picker>
       </el-form-item>
       <el-form-item label="活动时间" required>
-        <el-col :span="11">
+        <el-col >
           <el-form-item prop="date1">
             <el-date-picker
               type="date"
@@ -51,8 +51,11 @@
             ></el-date-picker>
           </el-form-item>
         </el-col>
-        <el-col class="line" :span="2">-</el-col>
-        <el-col :span="11">
+        <!-- <el-col class="line" :span="2">-</el-col> -->
+       
+      </el-form-item>
+      <el-form-item label="活动时间" required>
+         <el-col>
           <el-form-item prop="date2">
             <el-time-picker placeholder="选择时间" v-model="ruleForm.date2" style="width: 100%;"></el-time-picker>
           </el-form-item>
@@ -83,7 +86,7 @@
         <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
-    <el-form>
+    <el-form label-width="100px">
       <el-form-item label="显示数据">
         <el-input type="textarea" v-model="showFormData"></el-input>
       </el-form-item>
