@@ -62,7 +62,7 @@ export default {
     position: fixed;
     right: 0;
     top: 150px;
-    z-index: 9;
+    z-index: 100;
     transform: translate(80px, 0);
     transition: all .4s linear;
     &:hover {

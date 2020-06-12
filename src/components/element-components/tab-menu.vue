@@ -1,7 +1,6 @@
 <template>
 <el-row class="tac">
   <el-col :span="24" class="h100">
-    ddddd
     <el-menu
       class="no-boarder el-menu-vertical-demo h100"
       router
