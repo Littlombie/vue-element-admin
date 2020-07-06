@@ -1,5 +1,12 @@
 module.exports = {
   outputDir:process.env.outputDir,
+  chainWebpack: config => {
+    if (process.env.use_analyzer) {
+      config
+        .plugin('webpack-bundle-analyzer')
+        .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
+    }
+  },
   configureWebpack: config => {
     config.module.rules.push({
         test: /\.md$/,
