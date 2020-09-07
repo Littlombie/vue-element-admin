@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import loginPanel from '@/components/form/login'
+import loginPanel from '../../components/form/login'
 export default {
   components: {
     'login-panel': loginPanel

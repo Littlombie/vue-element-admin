@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import testMd from "@/components/markdown/test.md";
+import testMd from "../../components/markdown/test.md"; 
 
 export default {
   components: {

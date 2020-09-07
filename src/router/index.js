@@ -3,25 +3,25 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import Login from '@/views/user/login'
-import Admin from '@/views/admin/admin'
-import Dashboard from '@/views/dashboard/dashboard'
-import ComponentList from '@/views/components/components'
-import Overview from '@/views/overview/overview'
-import List from '@/views/list/list'
-import AdminContainer from '@/views/list/admin-container'
-import Tab from '@/views/list/tab'
-import stepMap from '@/views/list/stepMap'
-import parctice from '@/views/list/parctice'
+import Login from '../views/user/login' //@/views/user/login
+import Admin from '../views/admin/admin'
+import Dashboard from '../views/dashboard/dashboard'
+import ComponentList from '../views/components/components'
+import Overview from '../views/overview/overview'
+import List from '../views/list/list'
+import AdminContainer from '../views/list/admin-container'
+import Tab from '../views/list/tab'
+import stepMap from '../views/list/stepMap'
+import parctice from '../views/list/parctice'
 
-import Form from '@/views/form/form'
-import FormList from '@/views/form/form-list'
-import addressSelect from '@/views/form/address'
-import formValid from '@/views/form/formValid2'
+import Form from '../views/form/form'
+import FormList from '../views/form/form-list'
+import addressSelect from '../views/form/address'
+import formValid from '../views/form/formValid2'
 
-import Others from '@/views/othersPage/others'
-import Markdowm from '@/views/othersPage/markdown'
-import Umoji from '@/views/othersPage/umoji'
+import Others from '../views/othersPage/others'
+import Markdowm from '../views/othersPage/markdown'
+import Umoji from '../views/othersPage/umoji'
 
 
 // 重写路由方法
