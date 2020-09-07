@@ -1,6 +1,6 @@
 module.exports = {
   outputDir:process.env.outputDir,
-  publicPath: process.env.NODE_ENV === 'production' ? 'vue-element-admin/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   chainWebpack: config => {
     if (process.env.use_analyzer) {
       config
@@ -25,6 +25,5 @@ module.exports = {
   devServer: {
       port: 9966,     // 端口
   },
- 
   lintOnSave: false   // 取消 eslint 验证
 };
