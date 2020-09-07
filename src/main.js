@@ -9,6 +9,7 @@ import echarts from 'echarts'
 import i18n from './i18n/i18n';
 import { storage, session } from './common/storage'
 import rules from './utils/rules'
+import moment from 'moment';
 // import objTree from './utils/objTree'
 
 import components from './components/common'
@@ -27,6 +28,7 @@ Vue.prototype.$echarts = echarts;
 Vue.prototype.$storage = storage;
 Vue.prototype.$session = session;
 Vue.prototype.$rules = rules;
+Vue.prototype.$moment = moment;
 // Vue.prototype.$objTree = objTree;
 
 

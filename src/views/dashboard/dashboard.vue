@@ -1,9 +1,9 @@
 <template>
   <el-container>
-      <v-aside></v-aside>
+    <v-aside></v-aside>
     <el-container style="position: relative">
       <div class="container-header">
-        <v-header></v-header>
+        <v-header @dataJRSC="dataJRSC"></v-header>
         <v-tab-nav></v-tab-nav>
       </div>
       <el-main>
@@ -13,12 +13,14 @@
   <v-changepass ></v-changepass>
   <v-info></v-info>
   <v-change-theme></v-change-theme>
+  <el-dialog title="每日一言" :visible.sync="showSCPanel" width="50%" :before-close="handleClose">
+     <sc-panel :dataSc="dataSC"></sc-panel>
+  </el-dialog>
   </el-container>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-
 import header from '../../components/element-components/header'
 import aside from '../../components/nav/navMenu'
 import chanPass from '../../components/form/changePass'
@@ -26,11 +28,14 @@ import tabNav from '../../components/nav/nav-tab'
 import Info from "../../components/element-components/info"
 import numberAdd from '../../components/element-components/numberAdd'
 import changeTheme from '../../components/element-components/changeTheme'
+import scPanel from '../../components/element-components/sc-panel'
 export default {
   data () {
     return {
       showChangePass: false,
-      adminClass: false
+      adminClass: false,
+      showSCPanel: false,
+      dataSC: {}
     }
   },
   computed: {
@@ -59,7 +64,8 @@ export default {
     "v-info": Info,
     "v-number-add": numberAdd,
     "v-tab-nav": tabNav,
-    "v-change-theme": changeTheme
+    "v-change-theme": changeTheme,
+    scPanel
   },
   created(){
 
@@ -67,6 +73,15 @@ export default {
   methods: {
     resize () {
 
+    },
+    dataJRSC(data) {
+      this.showSCPanel = true;
+      if (data) { 
+        this.dataSC = JSON.parse( JSON.stringify(data));
+      }
+    },
+    handleClose() {
+      this.showSCPanel = false;
     }
   },
 };

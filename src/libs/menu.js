@@ -67,7 +67,13 @@ export default [{
       title: 'markdown',
       router: 'markdown',
       sub: [],
-    }]
+    },{
+      icon: '',
+      title: 'emoji转换',
+      router: 'umoji',
+      sub: [],
+    }
+  ]
   }
 // {
 //   icon: 'el-icon-document',

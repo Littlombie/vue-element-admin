@@ -4,7 +4,6 @@ import qs from 'qs' // 序列化请求数据，视服务端的要求
 
 export default function $axios(options) {
   return new Promise((resolve, reject) => {
-    // console.log('111', config.baseURL);
     const instance = axios.create({
       baseURL: config.baseURL,
       headers: {},
@@ -30,7 +29,6 @@ export default function $axios(options) {
         if (config.method.toLocaleLowerCase() === 'post' ||
           config.method.toLocaleLowerCase() === 'put' ||
           config.method.toLocaleLowerCase() === 'delete') {
-
           config.data = qs.stringify(config.data)
         }
         return config

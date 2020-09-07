@@ -1,6 +1,7 @@
 import axios from "axios";
 
 let baseURL;
+
 switch (process.env.VUE_APP_MODE) {
   // 生产环境
   case "production":

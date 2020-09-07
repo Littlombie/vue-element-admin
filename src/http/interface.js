@@ -11,12 +11,15 @@ import axios from './api' // 倒入 api
 // export const logout = () =>  axios({ url: 'api/loginOut', method: 'post' })
 // export const getProcess = () =>  axios({ url: '/json/getProcess.json', method: 'get' })
 
+let apiJRSC = 'https://v2.jinrishici.com/one.json?client=npm-sdk/1.0&X-User-Token=291pXLrffr6GkbK7aas0MQ66Nak1qY17';
+
 // 根据需要进行  
 export default {
   tabList: options => axios({ url: 'api/tabList', method: 'get', options }),
   login: data => axios({ url: 'api/login', method: 'post', data }),
   logout: () => axios({ url: 'api/loginOut', method: 'post' }),
-  getProcess: () => axios({ url: 'api/getProcess', method: 'get' })
+  getProcess: () => axios({ url: 'api/getProcess', method: 'get' }),
+  getJRSC: () => axios({ url: '', baseURL: apiJRSC, method: 'get' })
 }
 
 // export default {

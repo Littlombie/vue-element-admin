@@ -21,6 +21,7 @@ import formValid from '@/views/form/formValid2'
 
 import Others from '@/views/othersPage/others'
 import Markdowm from '@/views/othersPage/markdown'
+import Umoji from '@/views/othersPage/umoji'
 
 
 // 重写路由方法
@@ -164,7 +165,15 @@ const vueRouter = new Router({
               title: 'markdown',
             },
             component: Markdowm
-          }]
+          },{
+            path: 'umoji',
+            name: 'umoji',
+            meta: {
+              title: 'emoji相互转换',
+            },
+            component: Umoji
+          }
+        ]
         }
       ]
     }

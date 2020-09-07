@@ -47,7 +47,7 @@
            <change-langs></change-langs>
           </el-badge>
           <el-badge class="item">
-            <i class="iconfont icon-smile"></i>
+            <i class="iconfont icon-smile hover-curor-pointer" @click="getJRSC"></i>
           </el-badge>
           <el-badge :value="msgView" class="item item-msg" :hidden="msgView==0">
             <span  @click="sayMsg">
@@ -174,7 +174,16 @@ export default {
         err && $message('已取消');
         // $message.warning(err.msg);
       }
-    }
+    },
+    getJRSC() {
+      (async () => {
+        const res = await this.$http.getJRSC();
+        if (res) {
+          this.$emit('dataJRSC', res.data);
+        }
+
+      })()
+    },
   },
   mounted() {},
   computed: {
