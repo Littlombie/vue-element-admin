@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import dialog from '../../components/element-components/dialog' //@/components/element-components/dialog
+import dialog from '@/components/element-components/dialog'
 export default {
   data() {
     return {

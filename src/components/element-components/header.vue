@@ -97,7 +97,7 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from "vuex";
-import changeLangs from './chnageLangs'
+import changeLangs from '@/components/element-components/chnageLangs'
 
 import { log } from "util";
 export default {

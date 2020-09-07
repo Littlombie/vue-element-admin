@@ -44,8 +44,8 @@
 
 <script>
 import { mapState } from "vuex";
-import menuDatas from "../../libs/menu";
-import navList from "../nav/nav-list";
+import menuDatas from "@/libs/menu";
+import navList from "@/components/nav/nav-list";
 export default {
   data() {
     return {

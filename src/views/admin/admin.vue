@@ -24,11 +24,11 @@
 
 <script>
 import Grade from 'grade-js'
-import loginPanel from '../../components/form/login' //@/components/form/login
+import loginPanel from '@/components/form/login'
 export default {
   data() {
     return {
-      img: require('../../assets/images/favicon.png'), //('@/assets/images/favicon.png
+      img: require('@/assets/images/favicon.png'),
       translate: false
     }
   },

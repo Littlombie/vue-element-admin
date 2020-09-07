@@ -10,7 +10,7 @@
 
 <script type="text/javascript">
 import BpmnModeler from "bpmn-js/lib/Modeler"; // 引入 bpmn-js
-import bpmnPanel from '../../components/bpmn/bpmnPanel' //@/components/bpmn/bpmnPanel
+import bpmnPanel from '@/components/bpmn/bpmnPanel'
 export default {
   name: "",
   data() {
