@@ -1,6 +1,6 @@
 module.exports = {
   outputDir:process.env.outputDir,
-  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? 'vue-element-admin/' : '/',
   chainWebpack: config => {
     if (process.env.use_analyzer) {
       config
