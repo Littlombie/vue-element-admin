@@ -35,7 +35,7 @@ Router.prototype.replace = function replace(location) {
 }
 
 const vueRouter = new Router({
-  // mode: 'hash',
+  // mode: 'history',
   routes: [{
       path: '/',
       name: 'admin',

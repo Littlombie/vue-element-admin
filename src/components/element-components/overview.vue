@@ -26,7 +26,7 @@ export default {
   methods: {
     getPress() {
       this.$http
-        .getProcess()
+        .processed()
         .then(res => {
           if (res) {
             if (res.code === 200) {

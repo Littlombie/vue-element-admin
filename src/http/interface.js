@@ -18,7 +18,7 @@ export default {
   tabList: options => axios({ url: 'api/tabList', method: 'get', options }),
   login: data => axios({ url: 'api/login', method: 'post', data }),
   logout: () => axios({ url: 'api/loginOut', method: 'post' }),
-  getProcess: () => axios({ url: 'api/getProcess', method: 'get' }),
+  processed: () => axios({ url: 'api/getProcess', method: 'get' }),
   getJRSC: () => axios({ url: '', baseURL: apiJRSC, method: 'get' })
 }
 
