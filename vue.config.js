@@ -1,5 +1,6 @@
 module.exports = {
   outputDir:process.env.outputDir,
+  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   chainWebpack: config => {
     if (process.env.use_analyzer) {
       config

@@ -5,7 +5,7 @@ let baseURL;
 switch (process.env.VUE_APP_MODE) {
   // 生产环境
   case "production":
-      baseURL = axios.defaults.baseURL = "https://www.easy-mock.com/mock/5d8dbd3cc57d672775597f4f/";
+      baseURL = axios.defaults.baseURL = ""; //https://www.easy-mock.com/mock/5d8dbd3cc57d672775597f4f/
       break;
   // 开发环境
   case "development":
