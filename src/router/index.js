@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
 Vue.use(Router)
 
 import Login from '@/views/user/login'
@@ -184,9 +187,21 @@ const vueRouter = new Router({
   })
 })
 
+// 加载调的配置
+
+NProgress.configure({     
+  easing: 'ease',  // 动画方式    
+  speed: 500,  // 递增进度条的速度    
+  showSpinner: false, // 是否显示加载ico    
+  trickleSpeed: 200, // 自动递增间隔    
+  minimum: 0.3 // 初始化时的最小百分比
+})
+
+
 var routerList = [];
 vueRouter.beforeEach((to, from, next) => {
-
+  // 每次切换页面时，调用进度条
+  NProgress.start();
   let index = -1;
   for (let i = 0; i < routerList.length; i++) {
     //   判断路由之前是否存在，并返回位置
@@ -221,6 +236,9 @@ vueRouter.afterEach((to, from, next) => {
   // 跳到每个页面的时候 让页面滑动到最顶端
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
+
+  // 在即将进入新的页面组件前，关闭掉进度条
+  NProgress.done()
 })
 
 export default vueRouter

@@ -23,6 +23,7 @@
     "less-loader": "^5.0.0",
     "mockjs": "^1.0.1-beta3",
     "moment": "^2.27.0",
+    "nprogress": "^0.2.0",
     "objtree": "^0.1.24",
     "sass": "^1.22.12",
     "sass-loader": "^8.0.0",

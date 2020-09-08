@@ -77,7 +77,7 @@ export const loginOut = Mock.mock('api/loginOut', (req, res) => {
     'data': []
   })
 })
-let path = process.env.NODE_ENV === 'production' ? './' : '../';
+// let path = process.env.NODE_ENV === 'production' ? './' : './';
 export const processed = Mock.mock('api/getProcess', (req, res) => {
   return Mock.mock (
     {
@@ -86,32 +86,32 @@ export const processed = Mock.mock('api/getProcess', (req, res) => {
           "id": 0,
           "name": "总流程数",
           'number|1-1000': 100,
-          "img": `${path}images/u86.png`
+          "img": `./images/u86.png`
         },
     
         {
           "id": 1,
           "name": "待审核",
           'number|1-1000': 1,
-          "img": `${path}images/u7253.jpg`
+          "img": `./images/u7253.jpg`
         },
         {
           "id": 2,
           "name": "已审核",
           'number|1-1000': 1,
-          "img": `${path}images/u25820.png`
+          "img": `./images/u25820.png`
         },
         {
           "id": 3,
           "name": "已申请",
           'number|1-1000': 1,
-          "img": `${path}images/u61055.jpg`
+          "img": `./images/u61055.jpg`
         },
         {
           "id": 4,
           "name": "待阅读",
           'number|1-1000': 1,
-          "img": `${path}images/u61074.png`
+          "img": `./images/u61074.png`
         }
       ]
     }
