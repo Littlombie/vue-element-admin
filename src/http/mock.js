@@ -77,7 +77,7 @@ export const loginOut = Mock.mock('api/loginOut', (req, res) => {
     'data': []
   })
 })
-let path = process.env.NODE_ENV === 'production' ? './vue-element-admin/' : '../';
+let path = process.env.NODE_ENV === 'production' ? './' : '../';
 export const processed = Mock.mock('api/getProcess', (req, res) => {
   return Mock.mock (
     {
