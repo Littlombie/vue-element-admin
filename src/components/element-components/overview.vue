@@ -26,7 +26,7 @@ export default {
   methods: {
     getPress() {
       this.$http
-        .processed()
+        .processed({closeLoading: true})
         .then(res => {
           if (res) {
             if (res.code === 200) {
@@ -34,7 +34,6 @@ export default {
               this.list = res.data;
             }
           }
-          console.log(res);
         })
         .catch(err => {
           console.log(err);

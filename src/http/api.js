@@ -1,20 +1,35 @@
 import axios from 'axios' // 注意先安装哦
 import config from './config.js' // 倒入默认配置
 import qs from 'qs' // 序列化请求数据，视服务端的要求
+import { Loading } from 'element-ui';
 
 export default function $axios(options) {
   return new Promise((resolve, reject) => {
     const instance = axios.create({
       baseURL: config.baseURL,
       headers: {},
+      timeout: config.timeout,
       transformResponse: [function (data) {}]
     })
+
+    let loading = null;
 
     // request 拦截器
     instance.interceptors.request.use(
       config => {
+        // console.log(options, config.data);
+
         // Tip: 1
         // 请求开始的时候可以结合 vuex 开启全屏的 loading 动画
+        if (!config.data || config.data && !config.data.closeLoading) {
+          loading = Loading.service({
+            fullscreen: true,
+            text: options.loadingText || "正在加载",
+            spinner: "el-icon-loading iconfont icon-loading",
+            background: "rgb(16 16 16 / 0.2)", //rgba(0,0,0,0) 
+            customClass: "gb-loading"
+          });
+        };
 
         // Tip: 2 
         // 带上 token , 可以结合 vuex 或者重 localStorage
@@ -38,6 +53,7 @@ export default function $axios(options) {
         // Tip: 4
         // 关闭loadding
         console.log('request:', error)
+        loading && loading.close();
 
         //  1.判断请求超时
         if (error.code === 'ECONNABORTED' && error.message.indexOf('timeout') !== -1) {
@@ -78,14 +94,14 @@ export default function $axios(options) {
           default:
           
         }
+        loading && loading.close();
         // 若不是正确的返回code，且已经登录，就抛出错误
         // const err = new Error(data.description)
 
         // err.data = data
         // err.response = response
-
         // throw err
-        return data
+        return data;
       },
       err => {
         if (err && err.response) {
@@ -107,6 +123,7 @@ export default function $axios(options) {
         console.error(err)
         // 此处我使用的是 element UI 的提示组件
         // Message.error(`ERROR: ${err}`);
+        loading && loading.close();
         return Promise.reject(err) // 返回接口返回的错误信息
       }
     )
@@ -114,7 +131,6 @@ export default function $axios(options) {
     //请求处理
     instance(options)
       .then((res) => {
-        // console.log(res);
         resolve(JSON.parse(res) )
         return false
       })

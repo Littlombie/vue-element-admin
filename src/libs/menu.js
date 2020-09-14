@@ -5,15 +5,15 @@ export default [{
     router: 'temp',
     sub: [{
       icon: '',
-      title: '概况',
-      router: 'overview',
-      sub: [],
-    }, {
-      icon: '',
       title: '控制中心',
       router: 'adminContainer',
       sub: [],
-    }, {
+    },{
+      icon: '',
+      title: '概况',
+      router: 'overview',
+      sub: [],
+    },{
       icon: '',
       title: '列表',
       router: 'list',

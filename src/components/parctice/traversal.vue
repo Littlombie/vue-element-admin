@@ -44,43 +44,45 @@ export default {
   methods: {
     // 流程 练习
     eventLoop() {
-      console.log('开始');
-      console.log("1");
+      console.log('任务开始');
+      let arr = [];
+      arr.push('1');
 
       setTimeout(function() {
-        console.log("2");
+        arr.push('2');
         process.nextTick(function() {
-          console.log("3");
+          arr.push('3');
         });
         new Promise(function(resolve) {
-          console.log("4");
+          arr.push('4');
           resolve();
         }).then(function() {
-          console.log("5");
+          arr.push('5');
         });
       });
       process.nextTick(function() {
-        console.log("6");
+        arr.push('6');
       });
       new Promise(function(resolve) {
-        console.log("7");
+        arr.push('7');
         resolve();
       }).then(function() {
-        console.log("8");
+        arr.push('8');
       });
 
       setTimeout(function() {
-        console.log("9");
+        arr.push('9');
         process.nextTick(function() {
-          console.log("10");
+          arr.push('10');
         });
         new Promise(function(resolve) {
-          console.log("11");
+          arr.push('11');
           resolve();
         }).then(function() {
-          console.log("12");
+          arr.push('12');
         });
       });
+      console.log('输出数组：', arr);
     }
   }
 };

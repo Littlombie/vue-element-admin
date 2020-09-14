@@ -3,7 +3,7 @@
     <v-aside></v-aside>
     <el-container style="position: relative">
       <div class="container-header">
-        <v-header @dataJRSC="dataJRSC"></v-header>
+        <v-header @openJRSC="dataJRSC"></v-header>
         <v-tab-nav></v-tab-nav>
       </div>
       <el-main>
@@ -74,11 +74,14 @@ export default {
     resize () {
 
     },
-    dataJRSC(data) {
-      this.showSCPanel = true;
-      if (data) { 
-        this.dataSC = JSON.parse( JSON.stringify(data));
-      }
+    dataJRSC() {
+      (async () => {
+        const res = await this.$http.getJRSC();
+        if (res) {
+          this.showSCPanel = true;
+          this.dataSC = JSON.parse(JSON.stringify(res.data));
+        }
+      })()
     },
     handleClose() {
       this.showSCPanel = false;

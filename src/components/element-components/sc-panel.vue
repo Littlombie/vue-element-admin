@@ -26,9 +26,10 @@ export default {
   watch: {
     dataSc: {
       handler(newVal) {
-        console.log(newVal);
-        this.infoData = newVal;
-        this.chcheAt = this.$moment(newVal.cacheAt).format('YYYY-MM-DD HH:mm:ss');
+        if (newVal) {
+          this.infoData = newVal;
+          this.chcheAt = this.$moment(newVal.cacheAt).format('YYYY-MM-DD HH:mm:ss');
+        }
       },
       deep: true,
       immediate: true

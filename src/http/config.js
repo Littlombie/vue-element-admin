@@ -22,18 +22,12 @@ switch (process.env.VUE_APP_MODE) {
 // console.log('url', baseURL);
 export default {
   method: 'post',
-  // 基础url前缀
-  baseURL: baseURL,
-  // 请求头信息
-  headers: {
+  baseURL: baseURL, // 基础url前缀
+  headers: { // 请求头信息
     'Content-Type': 'application/json;charset=UTF-8'
   },
-  // 参数
-  data: {},
-  // 设置超时时间
-  timeout: 10000,
-  // 跨域携带凭证
-  withCredentials: false,
-  // 返回数据类型
-  responseType: 'json'
+  data: {}, // 参数
+  timeout: 90000, // 设置超时时间
+  withCredentials: false, // 跨域携带凭证
+  responseType: 'json', // 返回数据类型
 }

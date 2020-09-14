@@ -176,13 +176,7 @@ export default {
       }
     },
     getJRSC() {
-      (async () => {
-        const res = await this.$http.getJRSC();
-        if (res) {
-          this.$emit('dataJRSC', res.data);
-        }
-
-      })()
+      this.$emit('openJRSC');
     },
   },
   mounted() {},

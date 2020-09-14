@@ -6,12 +6,12 @@
       <v-add-info @addInfo="add"></v-add-info>
     </div>
     <div class="list-table">
+      <!-- v-loading="loading" -->
       <el-table
         ref="multipleTable"
         :data="tableData"
         tooltip-effect="dark"
         style="width: 100%"
-        v-loading="loading"
         @selection-change="handleSelectionChange"
         border
         align="center"
@@ -71,7 +71,7 @@ export default {
       showDetail: false,
       dialogFormVisible: false,
       formData: {},
-      loading: true,
+      // loading: true,
     };
   },
   created () {
@@ -92,9 +92,9 @@ export default {
             if (resp.code == 200) {
               this.tableData = resp.data;
               this.totalCount = resp.data.length * 10;
-              setTimeout(() => {
-                this.loading = false;
-              }, 1000)
+              // setTimeout(() => {
+              //   this.loading = false;
+              // }, 1000)
             }
           }
         })
