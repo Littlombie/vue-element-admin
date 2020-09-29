@@ -99,5 +99,8 @@ export default {
   /deep/.el-form-item__content {
     width: 100%;
   }
+  /deep/ .el-input__inner {
+    background-color: ~"rgb(255 255 255 / 41%)";
+  }
 }
 </style>

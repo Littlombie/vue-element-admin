@@ -5,7 +5,7 @@ export default [{
     router: 'temp',
     sub: [{
       icon: '',
-      title: '控制中心',
+      title: '监控中心',
       router: 'adminContainer',
       sub: [],
     },{

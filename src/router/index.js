@@ -86,7 +86,7 @@ const vueRouter = new Router({
               path: 'admin-container',
               name: 'adminContainer',
               meta: {
-                title: '控制中心',
+                title: '监控中心',
               },
               component: AdminContainer
             }, {

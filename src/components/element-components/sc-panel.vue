@@ -28,7 +28,7 @@ export default {
       handler(newVal) {
         if (newVal) {
           this.infoData = newVal;
-          this.chcheAt = this.$moment(newVal.cacheAt).format('YYYY-MM-DD HH:mm:ss');
+          this.chcheAt = this.$dayjs(newVal.cacheAt).format('YYYY-MM-DD HH:mm:ss');
         }
       },
       deep: true,
