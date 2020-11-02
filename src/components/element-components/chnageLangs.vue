@@ -2,7 +2,7 @@
  * @Author: Littlombie
  * @Date: 2020-03-06 15:27:09
  * @lastEditors: Littlombie
- * @LastEditTime: 2020-04-05 19:14:39
+ * @LastEditTime: 2020-10-27 15:50:42
  -->
 <template>
   <span class="changeLangs" @click="changeLangs(langs)">

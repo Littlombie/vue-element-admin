@@ -2,7 +2,7 @@
  * @Author: Littlombie
  * @Date: 2020-03-19 11:02:53
  * @lastEditors: Littlombie
- * @LastEditTime: 2020-04-10 09:53:39
+ * @LastEditTime: 2020-10-23 10:34:10
  -->
 <template>
   <div class="form-content">
@@ -50,7 +50,6 @@ export default {
     'ruleForm.compareArr': {
       handler(list) {
         list.forEach((item, index) => {
-          // console.log(item);
           this.createRuleValidate(index);
           
         });
@@ -72,25 +71,25 @@ export default {
   methods: {
     createRuleValidate(index) {
       this.$set(this.rules, `compareArr.${index}.lowestValue`, [
-        {required: true,  trigger: ['blur','change'], message: '最低值不能为空'},
-        {required: true, validator: this.$rules.numberCheck, trigger: ['blur', 'change'], message: '最高值必须为正整数'},
+        {required: true,  trigger: ['blur','change'], message: '最小值不能为空'},
+        {required: true, validator: this.$rules.numberCheck, trigger: ['blur', 'change'], message: '最小值必须为正整数'},
         {
           required: true,
           validator: (rule, value, callback) => {
             const _value = String(value).trim() && Number(value);
             const highestValue = this.ruleForm.compareArr[index].highestValue;
-            if (_value > highestValue && highestValue) {
+            if (_value >= highestValue && highestValue) {
               return callback(rule.message);
             }
             callback();
           },
-          message: '不能大于最大值',
+          message: '最小值必须小于最大值',
           trigger: ['change', 'blur']
         }
       ]);
       this.$set(this.rules, `compareArr.${index}.highestValue`, [
-        {required: true,  trigger: ['blur','change'], message: '最高值不能为空'},
-        {required: true, validator: this.$rules.numberCheck, trigger: ['blur', 'change'], message: '最高值必须为正整数'},
+        {required: true,  trigger: ['blur','change'], message: '最大值不能为空'},
+        {required: true, validator: this.$rules.numberCheck, trigger: ['blur', 'change'], message: '最大值必须为正整数'},
         {
           required: true,
           validator: (rule, value, callback) => {
@@ -101,7 +100,7 @@ export default {
             }
             callback();
           },
-          message: '不能小于最小值',
+          message: '最大值必须大于最小值',
           trigger: ['change', 'blur']
         }
       ])

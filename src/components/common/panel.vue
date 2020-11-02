@@ -1,21 +1,31 @@
 
 <template>
-  <div class="v-panel shadow" :class="className" :style="`width:${width}px` ">
+  <div class="panel shadow" :class="className" :style="`width:${width}px` ">
     <div class="panel-hd">
-      <p class="title" :class="themeMode">{{title}}</p>
-      <el-dropdown  @click="handleClick" trigger="click"  v-if="dropMenu.length">
-        <span class="el-dropdown-link">
-          <i class="iconfont el-icon-more" :class="themeMode"></i>
-        </span>
-        <el-dropdown-menu slot="dropdown" icon="el-icon-more">
-          <el-dropdown-item v-for="(item, index) in dropMenu" :key="index">
-            <p @click="handleClick(item)"><i class="iconfont" :class="item.icon"></i> {{item.name}}</p>
-          </el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+      <p class="panel-title" :class="themeMode">{{title}}</p>
+      <div class="panel-handle">
+        <p v-if="canStretch" class="panel-handle-stretch" @click="toogleStretch">
+          <span>{{handleStretch}}</span>
+          <i class="iconfont" :class="showPanel ? 'el-icon-arrow-up' : 'el-icon-arrow-down'"></i>
+        </p>
+        <el-dropdown  @click="handleClick" trigger="click"  v-if="dropMenu.length">
+          <span class="el-dropdown-link">
+            <i class="iconfont el-icon-more" :class="themeMode"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown" icon="el-icon-more">
+            <el-dropdown-item v-for="(item, index) in dropMenu" :key="index">
+              <p @click="handleClick(item)"><i class="iconfont" :class="item.icon"></i> {{item.name}}</p>
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </div>
     </div>
     <div class="panel-bd">
-      <slot name="panelContent"></slot>
+      <el-collapse-transition>
+        <div class="panel-bd-content" v-show="showPanel">
+          <slot name="panelContent"></slot>
+        </div>
+      </el-collapse-transition>
     </div>
   </div>
 </template>
@@ -39,14 +49,29 @@ export default {
     },
     width: {
       type: Number
+    },
+    canStretch: {
+      type: Boolean,
+      default: true
+    },
+    isOpen: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
    return {
-
+     handleStretch: '收缩',
+     showPanel: false
    }
   },
   watch: {
+    isOpen: {
+      handler(val) {
+        this.showPanel = val;
+      },
+      immediate: true
+    }
   },
   computed: {
     ...mapGetters({
@@ -59,12 +84,16 @@ export default {
    handleClick (item) {
      this.$emit('optionEvent', item)
    },
+   toogleStretch () {
+     this.showPanel = !this.showPanel;
+     this.handleStretch = this.showPanel  ? '收缩' : '展开'
+   }
  },
 }
 </script>
 
 <style lang="less" scoped>
-  .v-panel {
+  .panel {
     // margin-top: 20px;
     min-width: 400px;
     border: 1px solid #eee;
@@ -79,22 +108,38 @@ export default {
       line-height: 52px;
       background: #f8f9fc;
       border-bottom: 1px solid #eee;
-      .title {
+      .panel-title {
         color: #515b6d;
         font-size: 16px;
         font-weight: 600;
       }
-      .el-dropdown {
-        cursor: pointer;
-        .iconfont {
-          height: 20px;
-          font-size: 20px;
-          transform: rotate(90deg);
+      .panel-handle {
+        .panel-handle-stretch {
+          display: inline-block;
+          cursor: pointer;
+          &>span {
+            font-size: 14px;
+            margin-right: 5px;
+          }
+          *>.iconfont {
+            font-size: 12px;
+          }
+        }
+        .el-dropdown {
+          margin-left: 20px;
+          cursor: pointer;
+          .iconfont {
+            height: 20px;
+            font-size: 20px;
+            transform: rotate(90deg);
+          }
         }
       }
     }
     .panel-bd {
-      padding: 20px;
+      .panel-bd-content {
+        margin: 20px;
+      }
     }
   }
 </style>

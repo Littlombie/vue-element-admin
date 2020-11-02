@@ -44,7 +44,7 @@ import { mapState, mapGetters } from 'vuex'
     },
     created () {
       console.log(this.getInfo);
-      this.getInfo.address = this.getInfo.address.replace(/\s*/g,"");
+      this.getInfo.address = this.getInfo.address && this.getInfo.address.replace(/\s*/g,"");
     },
      methods: {
       handleClose() {

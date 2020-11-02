@@ -2,12 +2,12 @@
   <div class="main-page admin-container">
     <v-overview></v-overview>
     <el-container style="height: 500px">
-      <v-panel :title="'折线图'" :class="'panel-chart chart-curve'" :dropMenu="menuOptions2" @optionEvent="optionEvent" >
+      <v-panel :title="'折线图'" :class="'panel-chart chart-curve'" :dropMenu="menuOptions2" @optionEvent="optionEvent" :canStretch="false">
         <template v-slot:panelContent>
           <div class="curve" id="curve"></div>
         </template>
       </v-panel>
-      <v-panel :title="panel2" :class="'panel-chart ml20'" :dropMenu="menuOptions2" @optionEvent="optionEvent" >
+      <v-panel :title="panel2" :class="'panel-chart ml20'" :dropMenu="menuOptions2" @optionEvent="optionEvent" :canStretch="false">
         <template v-slot:panelContent>
           <div id="myChart" ref="myChart"></div>
         </template>
@@ -16,7 +16,7 @@
     </el-container>
 
     <el-container>
-      <v-panel :title="'水滴图'" :class="'panel-chart chart-liquidfill'" :dropMenu="menuOptions2" @optionEvent="optionEvent" >
+      <v-panel :title="'水滴图'" :class="'panel-chart chart-liquidfill'" :dropMenu="menuOptions2" @optionEvent="optionEvent" :canStretch="false">
         <template v-slot:panelContent>
           <div class="topSales" id="topSales"></div>
           <div class="topSales" id="topSales2"></div>

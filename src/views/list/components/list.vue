@@ -7,7 +7,7 @@
       <el-table-column prop="name" label="姓名" width="120"></el-table-column>
       <el-table-column prop="gender" label="性别" width="120"></el-table-column>
       <el-table-column prop="cellPhone" label="移动电话" width="120"></el-table-column>
-      <el-table-column prop="address" label="地址"></el-table-column>
+      <el-table-column prop="address" label="地址" min-width="260"></el-table-column>
     </el-table>
   </div>
 </template>

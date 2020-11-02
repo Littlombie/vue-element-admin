@@ -27,6 +27,15 @@ import Markdowm from '@/views/othersPage/markdown'
 import Umoji from '@/views/othersPage/umoji'
 
 
+import Notes from '@/views/notes/notes'
+import NotesCss from '@/views/notes/notes-css'
+import NotesCssVar from '@/views/notes/notes-css/css-var'
+import NotesJs from '@/views/notes/notes-js'
+import NotesJsDemo1 from '@/views/notes/notes-js/notes-demo1'
+import NotesOthers from '@/views/notes/notes-others'
+import NotesOther1 from '@/views/notes/notes-others/notes-others'
+
+
 // 重写路由方法
 const [routerPush, routerReplace] = [Router.prototype.push, Router.prototype.replace];
 Router.prototype.push = function push(location) {
@@ -153,7 +162,7 @@ const vueRouter = new Router({
               component: addressSelect
             }
           ]
-        },
+        }, 
         {
           path: '/others',
           name: 'others',
@@ -177,7 +186,70 @@ const vueRouter = new Router({
             component: Umoji
           }
         ]
+        },
+        {
+          path: '/notes',
+          name: 'notes',
+          meta: {
+            title: '笔记'
+          },
+          component: Notes,
+          children: [{
+            path: 'notes-css',
+            name: 'notesCss',
+            meta: {
+              title: 'css笔记',
+            },
+            component: NotesCss,
+            children: [
+              { 
+                path: 'css-var',
+                name: 'notesCssVar',
+                meta: {
+                  title: 'css-var学习',
+                },
+                component: NotesCssVar
+              }
+            ]
+          },{
+            path: 'notes-js',
+            name: 'motesJs',
+            meta: {
+              title: 'js-笔记',
+            },
+            component: NotesJs,
+            children: [
+              {
+                path: 'notes-demo1',
+                name: 'notesJsDemo1',
+                meta: {
+                  title: 'js-demo1',
+                },
+                component: NotesJsDemo1,
+              }
+            ]
+          },{
+            path: 'notes-others',
+            name: 'notesOthers',
+            meta: {
+              title: '其他',
+            },
+            component: NotesOthers,
+            children: [
+              {
+                path: 'notesOther1',
+                name: 'notesOther1',
+                meta: {
+                  title: '其他',
+                },
+                component: NotesOther1
+              }
+            ]
+          }
+        ]
         }
+        
+
       ]
     }
   ],
@@ -202,35 +274,44 @@ var routerList = [];
 vueRouter.beforeEach((to, from, next) => {
   // 每次切换页面时，调用进度条
   NProgress.start();
-  let index = -1;
-  for (let i = 0; i < routerList.length; i++) {
-    //   判断路由之前是否存在，并返回位置
-    if (routerList[i].name == to.name) {
-      index = i;
-      break;
+  if (to.path == '/login') {
+    next();
+  } else {
+    if (window.sessionStorage.getItem('adming_storage_user_info')) {
+      let index = -1;
+      for (let i = 0; i < routerList.length; i++) {
+        //   判断路由之前是否存在，并返回位置
+        if (routerList[i].name == to.name) {
+          index = i;
+          break;
+        }
+      }
+      if (index !== -1) {
+        //   如果存在，则回到重复路由的之前位置
+        routerList.splice(index + 1, routerList.length - index - 1);
+      } else {
+        //   不存在则加入循环数组内 
+        routerList.push({
+          name: to.name,
+          path: to.path
+        });
+      }
+      to.meta.routerList = routerList;
+    
+      // console.log('路由', routerList);
+    
+      if (to.meta.title) {
+        document.title = to.meta.title;
+      }
+    
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      next()
+    } else {
+      next('/login');
     }
   }
-  if (index !== -1) {
-    //   如果存在，则回到重复路由的之前位置
-    routerList.splice(index + 1, routerList.length - index - 1);
-  } else {
-    //   不存在则加入循环数组内 
-    routerList.push({
-      name: to.name,
-      path: to.path
-    });
-  }
-  to.meta.routerList = routerList;
-
-  // console.log('路由', routerList);
-
-  if (to.meta.title) {
-    document.title = to.meta.title;
-  }
-
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-  next()
+ 
 })
 vueRouter.afterEach((to, from, next) => {
   // 跳到每个页面的时候 让页面滑动到最顶端

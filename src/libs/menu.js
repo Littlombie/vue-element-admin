@@ -62,16 +62,64 @@ export default [{
     title: '其他',
     router: 'others',
     code: 3,
+    sub: [
+      {
+        icon: '',
+        title: 'markdown',
+        router: 'markdown',
+        sub: [],
+      },{
+        icon: '',
+        title: 'emoji转换',
+        router: 'umoji',
+        sub: [],
+      }
+    ]
+  },
+  {
+    icon: 'el-icon-edit-outline',
+    title: '笔记',
+    router: 'notes',
+    code: 4,
     sub: [{
       icon: '',
-      title: 'markdown',
-      router: 'markdown',
-      sub: [],
+      title: 'css笔记',
+      router: 'notes-css',
+      sub: [
+        {
+          icon: '',
+          title: 'css-var',
+          router: 'notesCssVar',
+          code: 1,
+          sub: []
+        }
+      ],
     },{
       icon: '',
-      title: 'emoji转换',
-      router: 'umoji',
-      sub: [],
+      title: 'js笔记',
+      router: 'motesJs',
+      sub: [
+        {
+          icon: '',
+          title: 'notes-demo1',
+          router: 'notesJsDemo1',
+          code: 1,
+          sub: []
+        }
+      ],
+    },{
+      icon: '',
+      title: '其他',
+      router: 'notesOthers',
+      sub: [
+        {
+          icon: '',
+          title: 'notes-others',
+          router: 'notesOther1',
+          code: 1,
+          sub: []
+        }
+      ],
     }
   ]
   }

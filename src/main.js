@@ -10,6 +10,8 @@ import i18n from './i18n/i18n';
 import { storage, session } from './common/storage'
 import rules from './utils/rules'
 import dayjs from 'dayjs';
+
+import DemoBlock from './components/demo-block/DemoBlock'
 // import objTree from './utils/objTree'
 
 import components from './components/common'
@@ -20,6 +22,8 @@ import './assets/css/style.less'
 
 Vue.use(api)
 Vue.use(components)
+
+Vue.component(DemoBlock.name, DemoBlock)
 
 Vue.config.productionTip = false;
 
