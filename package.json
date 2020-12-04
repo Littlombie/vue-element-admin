@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "vue-cli-service build --mode test",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "publish": "vue-cli-service build && vue-cli-service build --mode test",
+    "test": "vue-cli-service build --mode test",
     "lint": "vue-cli-service lint",
-    "analyzer": "use_analyzer=true npm run serve"
+    "analyzer": "use_analyzer=true npm run serve",
+    "publish": "vue-cli-service build && vue-cli-service build --mode test"
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -26,12 +26,15 @@
     "moment": "^2.27.0",
     "nprogress": "^0.2.0",
     "objtree": "^0.1.24",
+    "postcss-bem-fix": "^2.1.0",
+    "postcss-loader": "^4.0.4",
     "sass": "^1.22.12",
     "sass-loader": "^8.0.0",
     "umoji": "^2.0.0",
     "vue": "^2.6.10",
     "vue-i18n": "^8.15.4",
     "vue-router": "^3.1.3",
+    "vuedraggable": "^2.24.3",
     "vuex": "^3.1.1",
     "xml2json": "^0.12.0"
   },
@@ -45,8 +48,13 @@
     "eslint-plugin-vue": "^5.0.0",
     "grade-js": "^1.0.10",
     "hyperdown": "^2.4.3",
+    "postcss-import": "^13.0.0",
+    "postcss-preset-env": "^6.7.0",
     "prismjs": "^1.17.1",
+    "style-resources-loader": "^1.4.1",
+    "stylus-resources-loader": "0.0.4",
     "vue-cli-plugin-element": "^1.0.1",
+    "vue-cli-plugin-style-resources-loader": "^0.1.4",
     "vue-template-compiler": "^2.6.10",
     "webpack-bundle-analyzer": "^3.8.0"
   },
@@ -62,11 +70,6 @@
     "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
     }
   },
   "browserslist": [

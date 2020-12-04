@@ -56,6 +56,9 @@ pre code {
   word-wrap: break-word;
   color: #333;
 }
+.highlight .markdown  {
+  margin: 0;
+}
 
 .markdown h1 {
   font-size: 2em;

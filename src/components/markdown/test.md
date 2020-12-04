@@ -1,9 +1,6 @@
 # 测试Markdown解析
 
 
- 参考文章：  
-<a href="https://segmentfault.com/a/1190000021085117?utm_source=weekly&utm_medium=email&utm_campaign=email_weekly" target="_blank">vue中引入md文件，解析为组件并实现代码高亮</a>
-
 
 >  测试一下 
 
@@ -42,10 +39,17 @@ div {
   font-size: 16px;
 }
 ```
-#扩展 slot 
+## 扩展 slot 
 ###default
 这里插入一个默认插槽
 <slot></slot>
 ####footer
 这里插入一个具名插槽
 <slot name="footer"></slot>
+
+******
+
+#### 参考文章：  
+ 
+<a href="https://segmentfault.com/a/1190000021085117?utm_source=weekly&utm_medium=email&utm_campaign=email_weekly" target="_blank">vue中引入md文件，解析为组件并实现代码高亮</a>
+[e-admin](https://akebe.github.io/e-admin/#/install)

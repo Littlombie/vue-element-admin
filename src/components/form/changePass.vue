@@ -5,19 +5,21 @@
     :before-close="hidePassDialog"
     :close-on-click-modal="false"
     :close-on-press-escape="false"
-    width="35%"
+    width="550px"
   >
-    <el-form status-icon :model="form" :rules="rules"  ref="ruleForm" :label-position="labelPosition">
-      <el-form-item label="用户名" :label-width="formLabelWidth" prop="name">
-        <el-input placeholder="请输入用户名" v-model="form.name" autocomplete="off"></el-input>
-      </el-form-item>
-      <el-form-item label="密码" :label-width="formLabelWidth" prop="pass">
-        <el-input placeholder="请输入密码" v-model="form.pass" maxlength="16" show-password autocomplete="off"></el-input>
-      </el-form-item>
-      <el-form-item label="确认密码" :label-width="formLabelWidth" prop="checkPass">
-        <el-input placeholder="请输入密码" v-model="form.checkPass" maxlength="16" show-password autocomplete="off"></el-input>
-      </el-form-item>
-    </el-form>
+    <div class="admin-form">
+      <el-form status-icon :model="form" :rules="rules"  ref="ruleForm" :label-position="labelPosition">
+        <el-form-item label="用户名" :label-width="formLabelWidth" prop="name">
+          <el-input placeholder="请输入用户名" v-model="form.name" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="密码" :label-width="formLabelWidth" prop="pass">
+          <el-input placeholder="请输入密码" v-model="form.pass" maxlength="16" show-password autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="确认密码" :label-width="formLabelWidth" prop="checkPass">
+          <el-input placeholder="请输入密码" v-model="form.checkPass" maxlength="16" show-password autocomplete="off"></el-input>
+        </el-form-item>
+      </el-form>
+    </div>
     <div slot="footer" class="dialog-footer">
       <el-button @click="clearPassDialog('ruleForm')">取 消</el-button>
       <el-button @click="resetForm('ruleForm')">重 置</el-button>
@@ -121,4 +123,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 </style>

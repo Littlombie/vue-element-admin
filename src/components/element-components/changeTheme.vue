@@ -6,11 +6,12 @@
     </span>
     <div class="change-box shadow">
       <span class="change_title">{{$t('changeTheme')}}</span> 
-      <ul class="change-list">
+      <!-- <ul class="change-list">
         <li v-for="(item, index) in themeList" :key="index" @click="change(item.name)" :class="item.active ? 'active': ''">
           <span :style="{background: item.color}"></span>
         </li>
-      </ul>
+      </ul> -->
+      <el-color-picker v-model="color1"></el-color-picker>
     </div>
   </div>
 </template>
@@ -26,7 +27,8 @@ export default {
        {name: 'themeOrange', color: '#ffaf00', active: false},
        {name: 'themeGreen', color: '#00c292', active: false},
        {name: 'themePurple', color: '#e14eca', active: false}
-     ]
+     ],
+     color1: '#409eff'
    }
   },
  components: {},

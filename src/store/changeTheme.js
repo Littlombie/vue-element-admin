@@ -6,6 +6,7 @@ export default ({
   },
   getters: {
     ['THEME_MODE']: (state) => {
+      // document.
       return state.themeMode || 'themeBlue'
     }
   },

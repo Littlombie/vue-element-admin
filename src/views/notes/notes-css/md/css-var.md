@@ -35,6 +35,113 @@ var( <custom-property-name> , <declaration-value>? )
 
 ### 使用方法
 
-我们可以通过`var()`来更加理解css的权重
+#### 我们可以通过`var()`来更加理解css的权重
 如下例子：
 <slot name="cssWeights"></slot>
+
+#### CSS变量不合法的缺省特性
+css中我们使用样式属性名和值，都是相对应的，如下：
+
+``` css
+div {
+  font-size: 18px;
+}
+```
+这样页面上div的文字大小为18px; 但是如果我们把`font-size:`的值设置为 `#fff`, 我们不会得倒`div`文字颜色为白色，而此时文字的字号大小会找上级的默认设置，
+
+`var()`也一样，如下
+
+```
+:root {
+  --color: #fff;
+}
+
+div {
+  font-size: 16px;
+}
+
+div p {
+  font-size: var(--color, 18px);
+}
+```
+此时因为p的文字大小不会是颜色值，变量值是不合法的，所以不会取变量`--color`，此时则会使用字号的缺省值，也就是默认值代替：父级div 的 16px, 
+也不会使用 后边的`18px`, CSS默认值的使用仅限于变量未定义的情况，并不包括变量不合法。
+
+#### CSS变量的空格尾随特性
+
+ 如果我们给一个带单位属性值设置变量，那必须得在变量中设置单位。 如下：
+
+``` css
+div {
+  --margin: 20;
+  margin: var(--margin)px;
+}
+```
+按照上边的设置，此时我们以为div的外边距会为 20px， 但是 我们查看的时候会发现 其实为`margin: 20 px`；这样div的外边距实际为其默认值；
+如果想要实现直接传数值的方法，那就使用计算函数`calc()`,
+```
+div {
+  --size20: 20;
+  margin: calc(var(--size20) * 1px);
+}
+```
+** 注意 **：如果在less中使用计算属性 需要前面加个 `~"calc()"`，把计算内容包起来。
+
+<slot name="cssMargin"></slot>
+
+#### CSS变量的相互传递特性
+css变量的相互传递就是指，css变量可以使用另外的变量值，例如：
+```
+div {
+  --colorRed: #f00;
+  --backgoundColor: var(--colorRed);
+}
+```
+或者结合计算实现更复杂的效果，例如：
+```
+div {
+  --columns: 4;
+  --margins: calc( 40px / var(--columns) );
+}
+```
+对于复杂的布局， css变量相互传递特性，可以大大的简化代码量，也可以实现，一次修改，全局变化的效果，尤其和动态布局在一起的时候，无论是CSS的响应式后者是JS驱动的布局变化。
+
+<slot name="cssLayout"></slot>
+
+### css var() 变量在标签中使用以及js的操作
+
+#### html标签设置var()
+
+在html标签中可以直接设置样式那样设置var()变量：
+``` html
+<div id="box" style="--color: #ccc">
+  <p style="width:100px; height:100px; border: 1px solid var(--color)"></p>
+</div>
+```
+#### 在js中获取css的var()
+
+JS中获取CSS变量可以使用getPropertyValue()方法，如下：
+
+``` js
+var box = document.querySelector('#box');
+var cssVarColor = getComputedStyle(box).getPropertyValue('--color');
+
+console.log(cssVarColor); //输出 #ccc
+```
+#### js中设置css 的var()
+
+``` html
+<div id="box">
+    <p style="width:100px; height:100px; border: 10px solid var(--color);"></p>
+</div>
+```
+使用`setProperty()`方法设置：
+
+```
+box.style.setProperty('--color', '#ddd');
+```
+
+### 参考文章
+[var()函数](https://developer.mozilla.org/zh-CN/docs/Web/CSS/var()
+[小tips:了解CSS变量var](https://www.zhangxinxu.com/wordpress/2016/11/css-css3-variables-var/?shrink=1)
+[小tips: 如何HTML标签和JS中设置CSS3 var变量](https://www.zhangxinxu.com/wordpress/2018/11/html-js-set-css-css3-var%e5%8f%98%e9%87%8f/)

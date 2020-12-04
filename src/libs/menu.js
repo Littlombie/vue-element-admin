@@ -18,6 +18,11 @@ export default [{
       title: '列表',
       router: 'list',
       sub: [],
+    },{
+      icon: '',
+      title: '列表拖拽',
+      router: 'tableDragger',
+      sub: [],
     }, {
       icon: '',
       title: 'tab',

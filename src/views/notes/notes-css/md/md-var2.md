@@ -3,7 +3,7 @@
   div { --color: green; }
   #alert { --color: red; }
   * { color: var(--color); }
-  <div class="box">
+  <div>
     <p>灰色继承于根元素</p>
     <div>绿色来自直接设置</div>
     <div id='alert'>

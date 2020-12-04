@@ -16,6 +16,7 @@ import AdminContainer from '@/views/list/admin-container'
 import Tab from '@/views/list/tab'
 import stepMap from '@/views/list/stepMap'
 import parctice from '@/views/list/parctice'
+import tableDragger from '@/views/list/table-dragger'
 
 import Form from '@/views/form/form'
 import FormList from '@/views/form/form-list'
@@ -106,6 +107,13 @@ const vueRouter = new Router({
               },
               component: List
             }, {
+              path: 'table-dragger',
+              name: 'tableDragger',
+              meta: {
+                title: '列表拖拽',
+              },
+              component: tableDragger
+            },{
               path: 'tab',
               name: 'tab',
               meta: {
@@ -274,7 +282,7 @@ var routerList = [];
 vueRouter.beforeEach((to, from, next) => {
   // 每次切换页面时，调用进度条
   NProgress.start();
-  if (to.path == '/login') {
+  if (to.path == '/admin' || to.path == '/login') {
     next();
   } else {
     if (window.sessionStorage.getItem('adming_storage_user_info')) {
@@ -308,7 +316,7 @@ vueRouter.beforeEach((to, from, next) => {
       document.documentElement.scrollTop = 0;
       next()
     } else {
-      next('/login');
+      next('/admin');
     }
   }
  

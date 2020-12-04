@@ -1,9 +1,9 @@
 <template>
   <div class="views-box">
     <test-md>
-      <el-button type="primary">default</el-button>
+      <el-button size="mini" type="primary">default</el-button>
       <template v-slot:footer>
-        <el-button type="success">footer</el-button>
+        <el-button size="mini" type="success">footer</el-button>
       </template>
     </test-md>
   </div>

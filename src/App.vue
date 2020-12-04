@@ -5,6 +5,7 @@
 </template>
 
 <script>
+// import {mapState, mapGetters, mapActions} from "store";
 export default {
   name: "app",
   components: {},

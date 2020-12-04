@@ -1,3 +1,4 @@
+const path = require('path');
 module.exports = {
   outputDir:process.env.outputDir,
   publicPath: './',
@@ -16,12 +17,33 @@ module.exports = {
             loader: 'vue-loader',
           },
           {
-            loader: require.resolve('./src//libs/markdown-loader'),
+            loader: require.resolve('./src/libs/markdown-loader'),
           },
         ],
       },
     );
   },
+  pluginOptions: {
+    'style-resources-loader': {
+      preProcessor: 'less',
+      patterns: [
+        path.resolve(__dirname, './src/assets/css/variable.less')  // 变量文件位置
+      ]
+    }
+  },
+  // css: {
+  //   loaderOptions: {
+  //     additionalData: `@import "~@/assets/css/variable.less";`
+  //     // globalVars: {
+  //     //   primary: '#fff'
+  //     // }
+  //     // postcss: {
+  //     //   plugins: [
+  //     //     postcssPresetEnv()
+  //     //   ]
+  //     // }
+  //   }
+  // },
   devServer: {
       port: 9966,     // 端口
   },
