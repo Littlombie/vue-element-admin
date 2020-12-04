@@ -50,7 +50,7 @@
     "hyperdown": "^2.4.3",
     "postcss-import": "^13.0.0",
     "postcss-preset-env": "^6.7.0",
-    "prismjs": "^1.17.1",
+    "prismjs": "^1.21.0",
     "style-resources-loader": "^1.4.1",
     "stylus-resources-loader": "0.0.4",
     "vue-cli-plugin-element": "^1.0.1",
