@@ -255,10 +255,13 @@ const vueRouter = new Router({
             ]
           }
         ]
-        }
-        
-
+      }
       ]
+    },
+    {
+      title: 'app.global.menu.notfound',
+      path: '/:pathMatch(.*)*',
+      component: () => import('@/views/404/index.vue'),
     }
   ],
   scrollBehavior: (to, from, savedPosition) => ({

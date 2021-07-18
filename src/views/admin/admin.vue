@@ -123,13 +123,16 @@ export default {
     font-size: 20px;
   }
   .avator {
+    // grid 实现水平垂直居中
+    display: grid;
+    place-content: center;
     width: 100px;
     height: 100px;
     border-radius: 50%;
     overflow: hidden;
-    display: flex;
-    /* -webkit-writing-mode: vertical-rl; */
-    align-content: center;
+    // display: flex;
+    // /* -webkit-writing-mode: vertical-rl; */
+    // align-content: center;
     position: absolute;
     top: -50px;
     padding: 10px;

@@ -2,7 +2,7 @@
  * @Author: Littlombie
  * @Date: 2020-03-19 11:02:53
  * @lastEditors: Littlombie
- * @LastEditTime: 2020-10-23 10:34:10
+ * @LastEditTime: 2020-12-17 17:15:42
  -->
 <template>
   <div class="form-content">
@@ -63,8 +63,7 @@ export default {
       deep: true
     }
   },
-  components: {
-  },
+  components: {},
   created() {
     this.createRuleValidate(0);
   },

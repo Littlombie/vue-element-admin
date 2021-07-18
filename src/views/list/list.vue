@@ -90,6 +90,7 @@ export default {
         .then(resp => {
           if (resp) { 
             if (resp.code == 200) {
+              console.log('返回的数据', resp.data)
               this.tableData = resp.data;
               this.totalCount = resp.data.length * 10;
               // setTimeout(() => {
