@@ -22,6 +22,7 @@ import Form from '@/views/form/form'
 import FormList from '@/views/form/form-list'
 import addressSelect from '@/views/form/address'
 import formValid from '@/views/form/formValid2'
+import getLeaveTime from '@/views/form/getLeaveTime'
 
 import Others from '@/views/othersPage/others'
 import Markdowm from '@/views/othersPage/markdown'
@@ -168,7 +169,15 @@ const vueRouter = new Router({
                 title: '地址三联选'
               },
               component: addressSelect
-            }
+            },
+            {
+              path: 'getLeaveTime',
+              name: 'getLeaveTime',
+              name: {
+                title: '获取请假时长'
+              },
+              component: getLeaveTime
+            },
           ]
         }, 
         {

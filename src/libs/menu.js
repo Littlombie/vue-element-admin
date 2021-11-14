@@ -60,6 +60,11 @@ export default [{
       title: '地址三联选',
       router: 'addressSelect',
       sub: [],
+    }, {
+      icon: '',
+      title: '获取请假时间',
+      router: 'getLeaveTime',
+      sub: [],
     }]
   },
   {

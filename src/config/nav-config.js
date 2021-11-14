@@ -116,6 +116,14 @@ export default [{
           title: 'address-select'
         },
         component: addressSelect
+      },
+      {
+        path: 'getLeaveTime',
+        name: 'getLeaveTime',
+        meta: {
+          title: '计算时长'
+        },
+        component: getLeaveTime
       }
     ]
     }
