@@ -2,7 +2,7 @@
  * @Author: Littlombie
  * @Date: 2021-11-14 23:29:21
  * @lastEditors: Littlombie
- * @LastEditTime: 2021-11-14 23:57:00
+ * @LastEditTime: 2021-11-15 09:27:24
  */
 
 /**
@@ -34,7 +34,7 @@ export function gDate(datestr) {
   return date;
 }
 
-
+8
 /**
  * 计算请假时长
  * @param {Object} beginTime    开始时间
